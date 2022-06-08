@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador Evaluación 360</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+         <!-- New evaluation -->
+    <div id="newEvaluation"></div>
+    <div id="evaluationStyle"></div>
+    <div id="evaluationConfig"></div>
+    <div id="remindersConfig"></div>
+    <div id="competences"></div>
+    <div id="behaviors"></div>
+    <div id="values"></div>
+    <div id="principles"></div>
+    <div id="evaluationType"></div>
+    <div id="scalesConfiguration"></div>
+    <div id="openQuestions"></div>
+    <div id="newtworkCreation"></div>
+    <div id="masiveNetwork"></div>
+    <div id="organigramNetwork"></div>
+    <div id="manualNetwork"></div>
+    <div id="networkGrades"></div>
+
+     <div id="controls-container"">
+        <div id="progress-container">
+            <button type="button" id="prevBtn" class="simple-action-btn">
+                <img src="assets/images/back.png" alt="">
+            </button>
+            
+            <button type="button" id="nextBtn"  class="simple-action-btn">
+                <img src="assets/images/next.png" alt="">
+            </button>
+        </div>
+    </div>
+        
+
+    <!-- Warning modal -->
+    <div id="myWarningModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content my-warning-modal">
+            <span class="close">&times;</span>
+            <div class="modal-text">
+                Estas a punto de salir de tu configuración de la evaluación<br>
+                <b name="test-name"></b><br>
+                ¿Estas seguro que quieres salir e ir al editor de competencias?<br>
+            </div>
+
+            <div class="modal-buttons">
+                <div class="modal-btns-container">
+                    <a  class="simple-action-btn warning-action" name="close">No, continuar el proceso</a>
+                    <a href="" class="blue-btn">Ir al editor</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div> 
+
+    <!-- Edit answer modal -->
+    <div id="editAnswer" class="modal">
+
+        <!-- Modal content -->
+        <div class="edit-answer-content">
+            <span class="close ">&times;</span>
+            <div class="modal-title">
+                Editar respuesta
+            </div>
+            <div class="modal-text">
+               <label for="answer-text">Texto de respuesta</label>
+               <input type="text" class="wizard-input" id="answer-text" name="answer-text">
+               
+               <div class="answer-range">
+                   <label>Rango de la respuesta</label>
+                   <div class="answer-range-container">
+                        <input id="min-range" type="number" class="wizard-input" min="1" >
+                        <input id="max-range" type="number" class="wizard-input" min="1" disabled>
+                   </div>
+               </div>
+               <div class="color-picker">
+                   <label>Color representativo</label>
+                   <input id="color-picker" value='#276cb8' />
+               </div>
+            </div>
+
+            <div class="modal-buttons">
+                <div class="modal-btns-container">
+                    <div  class="blue-btn" name="closeEdit">GUARDAR</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> 
+
+    <div class="modal" id="addReminderModal">
+
+        <!-- Modal content -->
+        <div class="add-reminder-content">
+
+            <span class="close ">&times;</span>
+            <div class="modal-title">
+                Añadir recordatorio
+            </div>
+            <div class="modal-text">
+                <div class="controls-area reminder-controls">
+                    <div class="form-group form-group-col">
+                        <label for="reminder-title">Título de recordatorio</label>
+                        <input type="text" name="reminder-title" id="reminder-title" class="search-input wizard-input">
+                    </div>
+                    <div class="form-group form-group-col">
+                        <label for="date-reminder">Fecha del recordatorio</label>
+                        <input type="date" name="date-reminder" id="reminder-date" class="search-input wizard-input">
+                    </div>
+                </div>
+                <div id="editor-container">
+                    <!-- Aqui va el actual editor de corre -->
+                </div>
+                <div class="modal-buttons">
+                    <div class="modal-btns-container">
+                        <div  class="blue-btn" id="save-reminder" onclick="saveReminder()">AÑADIR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<!-- <script src="js/animations.js"></script> -->
+<!-- <script src="js/evaluationType.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/evaluationConfig.js"></script>
+<script src="js/answerConfig.js"></script>
+<script src="js/pagination.js"></script>
+<script src="js/employeeSelectionConfig.js"></script>
+<script src="js/evaluatorsSelectionConfig.js"></script>
+<script src="js/evaluatorsConfig.js"></script>
+<script src="js/resumeConfig.js"></script> -->
+
+<script src="js/wizard.js" type="module"></script>
+
+</html> 

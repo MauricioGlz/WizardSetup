@@ -1,0 +1,687 @@
+<!-- Evaluation style -->
+<div class="tab">
+    <div class="tab-title">Estilo de evaluación</div>
+    <div class="tab-subtitle" id="tab1-subtitle">Selecciona el tipo de evaluación</div>
+
+    <div id="evaluation-type-container">
+        <input type="radio" name="eval-type" id="" value="competence" >Por competencias
+        <input type="radio" name="eval-type" id="" value="experience" >Por nivel de dominio
+    </div>
+
+    <div class="tab-container">
+
+        <div class="card-section">
+            <div class="floating-card">
+                <div class="element-card-title">Por competencias</div>
+                <div class="element-card-description">
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-section">
+            <div class="controls-area">
+                <div class="search-container">
+                    <input type="text" name="" id="type-search" class="wizard-input search-input" placeholder="Buscar competencia">
+                </div>
+                <a class="simple-action-btn" href="#" id="warningModal" ><span class="iconify" data-inline="false" data-icon="akar-icons:link-out" style="font-size: 16px; margin-right: 5px;"></span> Ir a editor de competencias</a>
+            </div>
+            <div class="selector-area">
+                <div class="middle-container">
+                    <div class="element-card">
+                        <div class="element-title">Competencia de prueba</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia ejemplo</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia sin nombre</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia de prueba 2</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia peculiar</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia de ventas</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia ejemplo</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                    <div class="element-card">
+                        <div class="element-title">Competencia ejemplo</div>
+                        <div class="element-description">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. 
+                            Exercitation veniam consequat sunt nostrud amet.
+                        </div>
+                    </div>
+                </div>
+                <div class="white-space"></div>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="floating-card">
+                <div class="element-card-title">Por nivel de dominio</div>
+                <div class="element-card-description">
+
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+
+    
+</div>
+
+<!-- Questions configuration -->
+<div class="tab" id="questions-tab">
+    <div class="tab-title">Configurar evaluación</div>
+    <div class="tab-subtitle" id="tab1-subtitle">Activa las preguntas que se mostrarán durante la evaluación</div>
+
+    <div class="tab-container">
+
+        <div class="card-section">
+            <div class="floating-card floating-middle">
+                <div class="element-card-description">
+                    Las preguntas en esta sección serán convertidas a primera persona para un mejor entendimiento del evaluado.
+                </div>
+            </div>
+        </div>
+        <div class="tab-section">
+            <div class="controls-area">
+                <div class="questions-category">Competencia 1</div>
+                <div class="category-selector-container">
+                    <span>Mostrar preguntas de</span>
+                    <select name="cateogry-type" id="cateogry-type">
+                        <!-- Here it should load all the selected options from previous tab -->
+                        <option value="-">-</option>
+                        <option value="comp-1">Competencia 1</option>
+                        <option value="comp-2">Competencia 2</option>
+                        <option value="comp-3">Competencia 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="selector-area questions-area">
+                <div class="middle-container">
+                    <!-- You need to replace all this when loading a new competence -->
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 1</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 2</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 3</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 4</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 5</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 6</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 7</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 8</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 9</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia 10.</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 11</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <div class="element-name">Pregunta de la competencia. 12</div>
+                        <div class="element-tool-box">
+                            <div class="element-toggle-container">
+                                <span>Visible</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="questionVisible">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="white-space"></div>
+            </div>
+        </div>
+
+        <div class="card-section" id="competences-resume-card">
+           <div class="floating-card floating-small">
+               <div class="selected-cat" >Competencia 1</div>
+               <span class="badge" id="comp-1">0</span>
+           </div>
+           <div class="floating-card floating-small">
+               <div class="selected-cat">Competencia 2</div>
+               <span class="badge" id="comp-2">0</span>
+           </div>
+           <div class="floating-card floating-small">
+               <div class="selected-cat">Competencia 3</div>
+               <span class="badge" id="comp-3">0</span>
+           </div>
+        </div>
+
+        
+        
+    </div>
+
+</div>
+
+<!-- Answers type -->
+<div class="tab">
+    <div class="tab-title">Tipo de respuestas</div>
+    <div class="tab-subtitle" id="tab1-subtitle">Escoge el tipo de escala a usar como respuestas a las preguntas</div>
+
+    <div class="tab-container">
+        <div class="tab-section answer-tab">
+            <div class="answer-type-selector">
+                <div class="answer-type">
+                    <label>
+                        <input type="radio" name="answer-type" id="stars-type" value="stars" checked>Estrellas
+                        <div class="answer-selector-img">
+                            <img src="assets/images/selector_estrella.png" alt="">
+                        </div>
+                    </label>
+                </div>
+                <div class="answer-type">
+                    <label>
+                        <input type="radio" name="answer-type" id="number-type" value="number">Numeración
+                        <div class="answer-selector-img">
+                            <img src="assets/images/selector_numero.png" alt="">
+                        </div>
+                    </label>
+                </div>
+                <div class="answer-type">
+                    <label>
+                        <input type="radio" name="answer-type" id="custom-text" value="text">Texto personalizado
+                        <div class="answer-selector-img">
+                            <img src="assets/images/selector_texto.png" alt="">
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="answer-preview">
+                <div id="answer-preview-img"></div>
+
+                <div id="text-answer-configurator">
+
+                    <div class="controls-area">
+                        <div class="scale-options">
+                            <label>
+                                <input type="radio" name="scale-type" id="unit-scale" value="unit" checked> Escala unitaria
+                            </label>
+                            <label>
+                                <input type="radio" name="scale-type" id="unit-100" value="100"> Escala 1 - 100
+                            </label>
+                        </div>
+                        <div id="addAnswer" class="btn potentor-btn disabled-btn" onclick="addAnswer()" disabled>Añadir respuesta</div>
+                    </div>
+
+                    <div id="answers-editor">
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Sobre pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-green">5</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Cumple pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-blue">4</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Cumple medianamente pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-orange">3</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">En ocasiones cumple con las expectativas</div>
+                            <div class="element-type"><div class="tag tag-yellow">2</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">No cumple las expectativas</div>
+                            <div class="element-type"><div class="tag tag-red">1</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+                    </div>
+
+                    <div id="answer-bar-preview">
+                        <div class="answers-counter-container">
+                            <div class="answer-counter">1</div>
+                            <div class="answer-counter">2</div>
+                            <div class="answer-counter">3</div>
+                            <div class="answer-counter">4</div>
+                            <div class="answer-counter">5</div>
+                        </div>
+                        <div class="answer-bar-container">
+                            <div class="answer-bar" style="background-color: #FD2C2C;"></div>
+                            <div class="answer-bar" style="background-color: #EEE657;"></div>
+                            <div class="answer-bar" style="background-color: #F37021;"></div>
+                            <div class="answer-bar" style="background-color: #0089D0;"></div>
+                            <div class="answer-bar" style="background-color: #29C88F;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Personal to evaluate -->
+<div class="tab">
+    <div class="tab-title">Personal a evaluar</div>
+    <div class="tab-subtitle">Marca el área con el personal a evaluar, escoge individualmente o usa un archivo SCV</div>
+    <div class="csv-overlay">
+        <div class="csc-message">Se ha cargado un archivo CSV</div>
+    </div>
+    <div class="controls-area" id="personal-controls">
+        <div class="search-container">
+            <input type="text" name="" id="employee-search" class="wizard-input search-input" placeholder="Buscar personal">
+        </div>
+        <div class="employee-paginator-container">
+        </div>
+    </div>
+    <div class="tab-container" id="personal-selection"> </div>
+    <div class="csv-file-container">
+        <div class="tab-subtitle">Cargar archivo SCV (el personal seleccionado se perderá)</div>
+        <input type="file" name="scv-files" id="scv-file">
+        <div class="simple-action-btn remove-file-btn" onclick="removeFile()">Reiniciar seleccion</div>
+    </div>
+</div>
+
+<!-- Evaluators -->
+<div class="tab">
+    <div class="tab-title">Evaluadores</div>
+    <div class="tab-subtitle">Marca a los evaluadores del personal seleccionado</div>
+    <div class="tab-container" id="evaluators-selection"> 
+        <div style="gap: 2em;" class="evaluators-row evaluators-flex-grow-1">
+            <div class="evaluators-flex-grow-1 evaluators-column">
+                <div class="evaluators-row evaluators-space-between evaluators-align-items-center">
+                    <div class="evaluators-column evaluators-flex-gap-half">
+                        <label class="evaluators-small-label" for="area">Seleccionar por área</label>
+                        <select class="evaluators-large-select" id="evaluators-select-area" name="area">
+                             <option value="all">Todas</option>
+                        </select>
+                    </div>
+                    <div class="evaluators-row">
+                        <input type="text" name="" id="external-emails" class="wizar-input" placeholder="Escribe los correos externos separados por comas" hidden>
+                        <div class="simple-action-btn" id="confirm-emails" onclick="addEmails()">Confirmar correos</div>
+                        <div class="simple-action-btn" id="add-external-btn">Añadir externo</div>
+                        <div class="potentor-btn evaluators-confirm-btn" id="confirm-network-btn">Confirmar red</div>
+                    </div>
+                </div>
+                <div class="evaluators-content-panel">
+                    <div class="evaluators-column evaluators-full-height evaluators-flex-grow-1">
+                            <div class="evaluators-selection-column">
+                                <p>Evaluados</p>
+                            </div>
+                            <ul class="evaluators-employee-list" id="to-evaluate-list"></ul>
+                            <input 
+                                type="text" 
+                                placeholder="Buscar personal por nombre" 
+                                class="evaluators-text-input"
+                                id="to-evaluate-finder"
+                            />
+                    </div>
+                    <div class="evaluators-column evaluators-full-height evaluators-flex-grow-1">
+                            <div class="evaluators-selection-column">
+                                    <p>Par</p>
+                                    <select class="evaluators-select-count" name="limit">
+                                        <option value="5">3</option>
+                                        <option value="5">5</option>
+                                        <option value="5">10</option>
+                                    </select>
+                            </div>
+                            <ul class="evaluators-employee-list" id="peers-list"></ul>
+                            <input 
+                                type="text" 
+                                placeholder="Buscar personal por nombre" 
+                                class="evaluators-text-input"
+                            />
+                    </div>
+                    <div class="evaluators-column evaluators-full-height evaluators-flex-grow-1">
+                            <div class="evaluators-selection-column">
+                                    <p>Superiores</p>
+                                    <select class="evaluators-select-count" name="limit">
+                                        <option value="5">3</option>
+                                        <option value="5">5</option>
+                                        <option value="5">10</option>
+                                    </select>
+                            </div>
+                            <ul class="evaluators-employee-list" id="superiors-list"></ul>
+                            <input 
+                                type="text" 
+                                placeholder="Buscar personal por nombre" 
+                                class="evaluators-text-input"
+                            />
+                    </div>
+                    <div class="evaluators-column evaluators-full-height evaluators-flex-grow-1">
+                            <div class="evaluators-selection-column">
+                                <p>Subordinado</p>
+                                <select class="evaluators-select-count" name="limit">
+                                    <option value="5">3</option>
+                                    <option value="5">5</option>
+                                    <option value="5">10</option>
+                                </select>
+                            </div>
+                            <ul class="evaluators-employee-list" id="subordinates-list"></ul>
+                            <input 
+                                type="text" 
+                                placeholder="Buscar personal por nombre" 
+                                class="evaluators-text-input"
+                            />
+                    </div>
+                </div>
+            </div>
+            <div class="evaluators-column evaluators-side-panel">
+                <div class="evaluators-row">
+                    <select name="employee" class="evaluators-flex-grow-1" id="confirmed-employees">
+                    </select>
+                    <div class="action-btn delete-btn" onclick="removeEmployeeNetwork()">
+                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                    </div>
+                </div>
+                <input
+                    id = "search-on-network"
+                    type="text" 
+                    placeholder="Buscar red por nombre" 
+                    class="evaluators-text-input" 
+                />
+                <div>
+                    <div class="evaluators-employee-card">
+                        <p>Par</p>
+                        <ul id="network-confirmation-equals">
+                        </ul>
+                    </div>
+                    <div class="evaluators-employee-card">
+                        <p>Superiores</p>
+                        <ul id="network-confirmation-superiors">
+                        </ul>
+                    </div>
+                    <div class="evaluators-employee-card">
+                        <p>Subordinados</p>
+                        <ul id="network-confirmation-subordinates">
+                        </ul>
+                    </div>
+                    <div class="evaluators-employee-card">
+                        <p>Externos</p>
+                        <ul id="network-confirmation-externals">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resume and final config -->
+<div class="tab">
+    <div class="tab-title">Opciones finales</div>
+    <div class="tab-container" id="resume-config">
+        <div class="resume-columns-container">
+            <div class="column final-cofig-column final-options evaluators-flex-gap-half">
+                <div class="resume-cell evaluators-flex-gap-half">
+                    <div class="cell-title">Configuracones adicionales</div>
+                    <div class="cell-text">
+                        <div class="form-element">
+                            <div class="element-name">Las personas evaluadas también  realizarán la evaluación</div>
+                            <div class="element-tool-box">
+                                <div class="element-toggle-container">
+                                    <label class="switch">
+                                        <input type="checkbox" id="employees-will-evaluate" class="final-switch">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-element">
+                            <div class="element-name">Permitir retroalimentación</div>
+                            <div class="element-tool-box">
+                                <div class="element-toggle-container">
+                                    <label class="switch">
+                                        <input type="checkbox" id="feedback-allowed" class="final-switch">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-element">
+                            <div class="element-name">Permitir que la persona evaluada vea los resultados 360 de sus
+                                evaluadores manteniendo el anonimato
+                            </div>
+                            <div class="element-tool-box">
+                                <div class="element-toggle-container">
+                                    <label class="switch">
+                                        <input type="checkbox" id="employee-can-see-results" class="final-switch">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-cell evaluators-flex-gap-half">
+                    <div class="cell-title">Recordatorios</div>
+                    <div class="reminders-panel"></div>
+                    <div class="potentor-btn mini-right-btn" id="add-reminder-btn" onclick="addReminder()">Añadir recordatorio</div>
+                </div>
+                <div class="resume-cell evaluators-flex-gap-half">
+                    <div class="cell-title"> Periodo de aplicación </div>
+                    <div class="evaluation-period-container">
+                        <div class="form-group">
+                            <div class="input-icon">
+                                Del
+                            </div>
+                            <input type="date" id="period-from" class="period-input" placeholder="Usuario">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                Al
+                            </div>
+                            <input type="date" id="period-to" class="period-input" placeholder="Usuario">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

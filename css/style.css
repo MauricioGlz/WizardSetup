@@ -1,0 +1,1116 @@
+:root {
+    --primary-color: #796EF0;
+    --potentor-blue: #796EF0;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../assets/fonts/Poppins/Poppins-Regular.ttf);
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url(../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../assets/fonts/Poppins/Poppins-Bold.ttf);
+    font-variant: Bold;
+}
+
+@font-face {
+    font-family: 'Poppins-MediumItalic';
+    src: url(../assets/fonts/Poppins/Poppins-MediumItalic.ttf);
+}
+
+
+body {
+    background-color: #F8F8FA;
+    margin: 0;
+    font-family: 'Poppins';
+    overflow: hidden;
+}
+
+label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+
+
+#background-overlay {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+}
+
+.background-element {
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    transition: .5s;
+}
+
+#background-overlay #bars {
+    top: 3vh;
+    left: -16%;
+}
+
+#background-overlay #check {
+    top: 45vh;
+    left: 10%;
+    opacity: 0;
+}
+
+#background-overlay #toggles-1 {
+    top: 65vh;
+    left: 4%;
+    opacity: 0;
+    transform: scale(0);
+}
+
+#background-overlay #toggles-2 {
+    top: 5vh;
+    right: 5%;
+    opacity: 0;
+    transform: scale(0);
+}
+
+#background-overlay #table {
+    top: 35vh;
+    right: -15%;
+}
+
+#background-overlay #check-2 {
+    top: 74vh;
+    right: 10%;
+    opacity: 0;
+}
+
+.tab {
+    height: 100%;
+}
+
+/* Style the form */
+#configWizard {
+    margin: 0 auto;
+    width: 95%;
+    height: 82vh;
+    min-width: 300px;
+}
+
+#controls-container {
+    position: absolute;
+    bottom: 2.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nextBtn {
+    margin-left: 10px;
+}
+
+#prevBtn {
+    /* margin-right: auto; */
+}
+
+#progress-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+/* Style the input fields */
+.wizard-input {
+    padding: 5px;
+    width: 95%;
+    height: 25px;
+    min-height: 15px;
+    font-size: 14px;
+    border: 1px solid #aaaaaa;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    transition: all .2s;
+    font-family: 'Poppins';
+}
+
+.wizard-input:focus {
+    outline: none;
+}
+
+.search-input {
+    width: 220px;
+    text-align: left;
+    height: 15px;
+    font-size: 12px;
+}
+
+.simple-action-btn {
+    color: var(--primary-color);
+    background: var(--primary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.warning-action {
+    color: #FD2C2C;
+}
+
+.blue-btn {
+    display: inline-block;
+    background-color: #1C84E3;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.disabled-btn {
+    background-color: rgb(67, 67, 67) !important;
+    pointer-events: none;
+}
+
+select {
+    height: 25px;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.progress-bar {
+    width: 935px;
+    background-color: #F2F2F2;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.step {
+    height: 100%;
+    width: 0;
+    margin: 0 2px;
+    background-color: var(--potentor-blue);
+    border: none;
+    border-radius: 20px;
+    display: inline-block;
+    transition: 1s;
+}
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: var(--potentor-blue);
+}
+
+.tab-title {
+    position: relative;
+    font-family: 'Poppins-SemiBold';
+    font-size: 32px;
+    color: #4f4f4f;
+    margin-top: 10px;
+    text-align: center;
+    /* margin-bottom: 10px; */
+}
+
+
+#tab1-container {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    max-width: 500px;
+    margin: 15% auto auto auto;
+    border: 1px solid #D2D2D2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.tab-subtitle {
+    font-size: 16px;
+    color: var(--potentor-blue);
+    text-align: center;
+}
+
+.instructions {
+    color: #828282;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* Tab 2 */
+#evaluation-type-container {
+    text-align: center;
+    color: #4F4F4F;
+    font-size: 14px;
+}
+
+.tab-container {
+    width: 100%;
+    margin: auto;
+    display: inline-flex;
+    height: 67vh;
+    justify-content: center;
+}
+
+.card-section {
+    width: 18%;
+}
+
+.tab-section {
+    width: 64%;
+}
+
+.controls-area {
+    display: flex;
+    height: 50px;
+}
+
+.search-container {
+    margin-right: auto;
+}
+
+.selector-area {
+    width: 100%;
+    min-height: 350px;
+    overflow-y: auto;
+    margin-top: 17px;
+    padding: 0 5px;
+    height: 56vh;
+}
+
+.middle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.element-card {
+    width: 243px;
+    height: 132px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: all .2s;
+    margin: 10px;
+    border: solid 1px rgb(195, 195, 195);
+}
+
+.element-card.selected {
+    outline: 2px solid var(--potentor-blue);
+    transition: none;
+}
+
+.element-card:hover {
+    box-shadow: 0px 2px 6px 0px rgba(138, 138, 138, 0.5);
+}
+
+.element-title {
+    font-family: 'Poppins-MediumItalic';
+    font-size: 14px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.element-description {
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #828282;
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.no-description-overflow {
+    overflow: auto;
+    text-overflow: unset;
+    display: block;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.white-space {
+    height: 15px;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-card {
+    width: 180px;
+    height: 201px;
+    border-radius: 6px;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 2px 6px 0px rgba(138, 138, 138, 0.5);
+}
+
+.element-card-title {
+    font-family: 'Poppins-SemiBold';
+    font-size: 16px;
+    padding-top: 5px;
+    text-align: center;
+    color: #4F4F4F;
+}
+
+.element-card-description {
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #4F4F4F;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Evaluation configuration  */
+
+.form-element {
+    background-color: #F1F1F1;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    height: 44px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.element-name {
+    font-family: 'Poppins';
+    width: 90%;
+    font-size: 14px;
+    margin: auto 0 auto 15px;
+}
+
+.element-type {
+    width: 20%;
+    margin: auto;
+}
+
+.element-type .tag {
+    width: 80%;
+    border-radius: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin: auto;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+}
+
+.tag-blue {
+    background-color: #1c84e3;
+}
+
+.tag-orange {
+    background-color: #F49D36;
+}
+
+.tag-yellow {
+    background-color: #EEE657;
+}
+
+.tag-red {
+    background-color: #FD2C2C;
+}
+
+.tag-green {
+    background-color: #29C88F;
+}
+
+.tag-purple {
+    background-color: #9302AA;
+}
+
+.tag-gray {
+    background-color: #666666;
+}
+
+
+.element-tool-box {
+    width: 10%;
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.element-toggle-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.element-toggle-container>span {
+    font-size: 9px;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+.element-actions-container {
+    display: flex;
+    margin-left: 10px;
+}
+
+.action-btn {
+    width: 25px;
+    height: 25px;
+    margin: auto 5px;
+
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.potentor-btn {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    padding: 5px 15px;
+    color: #fff;
+    margin: auto 7px;
+    cursor: pointer;
+    transition: all .3s;
+    user-select: none;
+    border: none;
+}
+
+.default-btn {
+    background-color: #fff;
+    border: 1px solid #7D7D7D;
+}
+
+.delete-btn {
+    background-color: #FD2C2C;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 19px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--primary-color);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.placeholder {
+    display: none;
+}
+
+.form-visualizer-container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-middle {
+    height: 114px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions-category {
+    font-family: 'Poppins-SemiBold';
+    font-size: 18px;
+    color: #4f4f4f;
+    line-height: 44px;
+}
+
+.category-selector-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-left: auto;
+}
+
+.category-selector-container span {
+    font-size: 12px;
+    color: #828282;
+}
+
+.questions-area {
+    height: 60vh;
+}
+
+.floating-small {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.selected-cat {
+    padding: 5px;
+    font-size: 14px;
+    color: #4f4f4f;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 16px;
+    padding: 7px 12px;
+    border-radius: 50%;
+    font-size: 19px;
+    text-align: center;
+    background: #1779ba;
+    color: #fefefe;
+    transform: scale(.6);
+    margin-left: auto;
+}
+
+/* Answers type */
+
+.answer-tab {
+    width: 70%;
+    display: inline-flex;
+}
+
+.answer-type-selector {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-type {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.answer-type label {
+    cursor: pointer;
+}
+
+
+.answer-preview {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.answer-selector-img {
+    margin-top: 5px;
+}
+
+#answer-preview-img {
+    display: block;
+    
+    background-image: url('assets/images/respuesta_estrella.png');
+    background-position: center;
+
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+#text-answer-configurator {
+    display: none;
+    width: 97%;
+    height: 100%;  
+    position: relative;  
+}
+
+.scale-options {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+}
+
+.scale-options label {
+    cursor: pointer;
+}
+
+#answer-editor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#answer-bar-preview {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.answers-counter-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.answer-counter {
+    width: 100%;
+    text-align: center;
+}
+
+.answer-bar-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.answer-bar {
+    width: 100%;
+    height: 20px;
+}
+
+.answer-bar:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.answer-bar:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#personal-selection {
+    height: 47vh;
+}
+
+.personal-selection-card, .eveluators-selection-card {
+    width: 197px;
+    height: 267px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: default;
+    user-select: none;
+    transition: all .2s;
+    margin: 10px;
+    border: solid 1px rgb(195, 195, 195);
+    overflow-y: auto;
+}
+
+.personal-selection-card .element-title, .eveluators-selection-card .element-title {
+    cursor: pointer;
+}
+
+.paginator-container {
+    margin-left: auto;
+}
+
+.paginationjs {
+    display: inline-flex;
+}
+
+.page-btn-page {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: var(--potentor-blue);
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.page-btn-page.active {
+    background-color: #fff;
+    border: 1px solid #BDBDBD;
+    color: #000;
+}
+
+.page-btn-page a {
+    text-decoration: none;
+}
+
+.page-btn-page a:-webkit-any-link {
+    color: #fff;
+}
+
+
+.personal-container ul li{
+    list-style-type: circle;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.element-title.active, .personal-container ul li.active {
+    color: var(--primary-color);
+}
+
+.csv-file-container {
+    text-align: center;
+}
+
+.remove-file-btn {
+    display: block;
+    margin: 10px auto;
+}
+
+
+.csv-overlay {
+    height: 51vh;
+    width: 95%;
+    background-color: rgba(0,0,0,.8);
+    position: absolute;
+    display: none;
+    border-radius: 10px;
+}
+
+.csc-message {
+    display: block;
+    margin: auto;
+    padding: 10px 20%;
+    background-color: #fff;
+}
+
+.resume-columns-container {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.resume-cell {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.column {
+    width: 20%;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.cell-title {
+    font-family: 'Poppins-SemiBold';
+    color: var(--potentor-blue);
+    font-size: 14px;
+}
+
+.cell-text {
+    font-family: 'Poppins';
+    font-size: 12px;
+}
+
+.resume-cell .simple-action-btn {
+    text-align: right;
+    margin-left: auto;
+}
+
+.list-element {
+    margin: 7px 0;
+}
+
+.employees-list-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.employee-element {
+    width: 50%;
+}
+
+.hidden-btn {
+    display: none;
+}
+
+.final-cofig-column {
+    display: flex;
+    flex: .5;
+    margin-top: 2em;
+    align-self: center;
+    justify-self: center;
+}
+
+.final-options .form-element {
+    height: auto;
+    background-color: transparent;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 10px 0px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.reminders-panel {
+    height: 9em;
+    background-color: white;
+    border: solid 1px rgb(195, 195, 195);
+    margin: .5em 0;
+    border-radius: 5px;
+}
+
+.mini-right-btn {
+    margin: 0;
+    align-self: flex-end;
+    font-size: .85em;
+}
+
+.final-options .form-element .element-name {
+    font-family: 'Poppins';
+    width: 79%;
+    font-size: 13px;
+    margin: auto 15px auto 15px;
+}
+
+.evaluation-period-container {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+/* .form-group {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    margin-bottom: 20px;
+    max-width: 175px;
+}
+
+.form-group-col {
+    max-width: 300px;
+    flex-direction: column;
+} */
+
+.input-icon {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--potentor-blue);
+    border-radius: 10px 0px 0px 10px;
+    color: #fff;
+    transition: .5s;
+}
+
+.period-input {
+    border: 1px solid #BDBDBD;
+    border-radius: 0 5px 5px 0;
+    padding-left: 3px;
+}
+
+.evaluators-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.evaluators-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.evaluators-space-between { justify-content: space-between; }
+
+.evaluators-flex-grow-1 {
+    display: flex;
+    flex: 1;
+}
+
+.evaluators-align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.evaluators-flex-gap-1 { gap: 1.5em; }
+.evaluators-flex-gap-half { gap: .5em; }
+
+.evaluators-flex-align-start { align-items: flex-start; }
+
+.evaluators-column-text-input {
+    font-size: .85em;
+    text-align: left;
+    flex: 1;
+    width: unset;
+    max-height: 25px;
+}
+
+.evaluators-full-height { height: 100%; }
+
+.evaluators-employee-list {
+    flex-direction: column;
+    display: flex;
+    flex: 1 1 100%;
+    gap: 1em;
+    list-style: none;
+    border-radius: 5px;
+    background-color: #fff;
+    border: solid 1px rgb(195, 195, 195);
+    padding: 1em 1.5em;
+    font-size: .85em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.evaluators-employee-list > li { cursor: pointer; }
+
+.evaluators-small-label { font-size: .8em; }
+
+.evaluators-select-count { width: 6em; }
+.evaluators-large-select { width: 15em; }
+
+.evaluators-confirm-btn {
+    font-size: .85em;
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+.evaluators-selection-column {
+    margin-bottom: -1em;
+}
+
+.evaluators-employee-card { font-size: .85em; }
+.evaluators-employee-card > p { margin-bottom: -.5em; }
+
+.evaluators-employee-card > ul {
+    display: flex;
+    flex-direction: column;
+    padding: .8em 1em;
+    gap: .5em;
+    background-color: #ececec;
+    border-radius: 5px;
+    border: solid 1px rgb(195, 195, 195);
+    list-style: none;
+}
+
+.evaluators-side-panel {
+    flex: .25; 
+    min-height: 0px; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.evaluators-content-panel {
+    min-height: 0px;
+}
+
+.evaluators-selected {
+    color: var(--primary-color)
+}
+
+.reminder-controls {
+    gap: 30px;
+}
+
+#external-emails {
+    min-width: 35vw;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+#confirm-emails {
+    display: none;
+}

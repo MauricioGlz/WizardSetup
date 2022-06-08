@@ -1,0 +1,135 @@
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 15px;
+    /* Could be more or less, depending on screen size */
+}
+
+#editAnswer .modal-text{
+    text-align: left;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+#answer-text {
+    height: 12px;
+    text-align: left;
+}
+
+.edit-answer-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 10px;
+}
+
+.add-reminder-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.answer-range {
+    margin-top: 10px;
+}
+
+.answer-range-container {
+    display: flex;
+}
+
+.answer-range-container .wizard-input {
+    width: 158px;
+    height: 20px;
+    text-align: left;
+}
+
+.answer-range-container .wizard-input:nth-child(2) {
+    margin-left: auto;
+}
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+}
+
+#color-picker {
+    border-radius: 15px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.my-warning-modal {
+    width: 40%;
+}
+
+.modal-text {
+    font-family: 'Poppins';
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.modal-btns-container {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.modal-btns-container a:first-child {
+    margin-right: 10px;
+}
+
