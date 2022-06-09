@@ -95,7 +95,9 @@ label {
 }
 
 .tab {
+    position: absolute;
     height: 100%;
+    width: 100%;
 }
 
 /* Style the form */
@@ -1110,4 +1112,67 @@ input:checked+.slider:before {
 
 #confirm-emails {
     display: none;
+}
+
+
+/* New V3 styles*/
+
+.options-chooser {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+.option-card {
+    width: 376px;
+    height: 113px;
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+    cursor: pointer;
+    display: block;
+    user-select: none;
+}
+
+.option-card.active-card {
+    color: white;
+    background-color: var(--primary-color);
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.3));
+}
+
+.card-left {
+    margin-left: auto;
+}
+
+.card-right {
+    margin-right: auto;
+}
+
+.option-icon-container {
+    height: 100%;
+    display: flex;
+}
+
+.option-card.active-card .option-icon-container {
+    color: white;
+}
+
+.option-icon-container i {
+    margin-top: 27px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 27px;
+    display: flex;
+}
+
+.option-card-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 27px;
+    height: 50%;
+}
+
+.option-card-text {
+    font-size: 1.1rem;
 }

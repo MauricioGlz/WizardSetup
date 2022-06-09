@@ -16,7 +16,6 @@ async function showTab(n) {
         
         document.getElementById("prevBtn").style.opacity = 0;
     } else {
-        reverseAnimations();
         if (n == 2) updateCatCounters();
         document.getElementById("prevBtn").style.opacity = 1;
         document.getElementById("prevBtn").style.display = "inline";
@@ -158,7 +157,7 @@ $(document).ready( function() {
     $('#unit-scale').prop('checked', true); */
 
     // Display the current tab
-    showTab(currentTab); 
+    showTab(1); 
 
 })
 
