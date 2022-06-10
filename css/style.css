@@ -27,7 +27,7 @@
 
 
 body {
-    background-color: #F8F8FA;
+    background-color: #F8F8FA !important;
     margin: 0;
     font-family: 'Poppins';
     overflow: hidden;
@@ -94,12 +94,6 @@ label {
     opacity: 0;
 }
 
-.tab {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
 /* Style the form */
 #configWizard {
     margin: 0 auto;
@@ -108,33 +102,12 @@ label {
     min-width: 300px;
 }
 
-#controls-container {
-    position: absolute;
-    bottom: 2.5%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #nextBtn {
     margin-left: 10px;
 }
 
 #prevBtn {
     /* margin-right: auto; */
-}
-
-#progress-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 90%;
-}
-
-#newEvaluationContainer {
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Style the input fields */
@@ -212,58 +185,6 @@ input.invalid {
     background-color: #ffdddd;
 }
 
-/* Hide all steps by default: */
-.tab {
-    display: none;
-}
-
-/* Make circles that indicate the steps of the form: */
-.progress-bar {
-    width: 935px;
-    background-color: #F2F2F2;
-    height: 20px;
-    border-radius: 20px;
-}
-
-.step {
-    height: 100%;
-    width: 0;
-    margin: 0 2px;
-    background-color: var(--potentor-blue);
-    border: none;
-    border-radius: 20px;
-    display: inline-block;
-    transition: 1s;
-}
-
-/* Mark the active step: */
-.step.active {
-    opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-    background-color: var(--potentor-blue);
-}
-
-.tab-title {
-    position: relative;
-    font-family: 'Poppins-SemiBold';
-    font-size: 32px;
-    color: #4f4f4f;
-    margin-top: 10px;
-    text-align: center;
-    /* margin-bottom: 10px; */
-}
-
-
-.tab-container {
-    margin: 15% auto auto auto;
-    border: 1px solid #D2D2D2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 20px;
-}
 
 .tab-subtitle {
     font-size: 16px;
@@ -547,54 +468,6 @@ input.invalid {
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 15px;
-    width: 15px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background-color: var(--primary-color);
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px var(--primary-color);
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(15px);
-    -ms-transform: translateX(15px);
-    transform: translateX(15px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
 
 .placeholder {
@@ -1117,6 +990,67 @@ input:checked+.slider:before {
 
 /* New V3 styles*/
 
+#pages-container {
+    position: relative;
+    height: 93%;
+}
+
+#controls-container {
+    position: relative;
+    height: 10%;
+    width: 100%;
+}
+
+#progress-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 98%;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.tab-title {
+    position: relative;
+    font-family: 'Poppins-SemiBold';
+    font-size: 32px;
+    color: #4f4f4f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    margin-bottom: 10px;
+}
+
+.tab-container {
+    margin: 15% auto auto auto;
+    border: 1px solid #D2D2D2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+}
+
+.wizard-instruction {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #34334A;
+}
+
+#newEvaluationContainer {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .options-chooser {
     height: 90%;
     display: flex;
@@ -1175,4 +1109,95 @@ input:checked+.slider:before {
 
 .option-card-text {
     font-size: 1.1rem;
+}
+
+#evaluationConfiguration {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: auto;
+    position: relative;
+    height: 90%;
+    
+}
+
+#welcomeTextEditor {
+    height: 85%;
+}
+
+.configurations-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.configuration {
+    font-family: 'Poppins';
+    border-bottom: 1px solid #d2d2d2;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+}
+
+.config-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    font-size: 12px;
+    /* margin-bottom: 11px; */
+}
+
+.toggle {
+    text-align: right;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--primary-color);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.full-height {
+    height: 100%;
 }

@@ -1,0 +1,89 @@
+<div class="tab">
+    <div class="tab-title">Configura la nueva evaluación</div>
+    <div class="tab-container" id="evaluationConfiguration">
+        <div class="row full-height">
+            <div class="col-md-6 full-height">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="wizard-instruction">
+                            <p>Permisos de la evaluación</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="configurations-container">
+                            <div class="configuration">
+                                <div class="col-md-10 config-text">
+                                    Las personas evaluadas tambien podran realizar autoevaluación
+                                </div>
+                                <div class="col-md-2 toggle">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                            <div class="configuration">
+                                <div class="col-md-10 config-text" >
+                                    Permitir que el evaluado consulte sus resultados con anonimato de sus evaluadores
+                                </div>
+                                <div class="col-md-2 toggle">
+                                    <label class="switch">
+                                        <input type="checkbox" value="allowAnonymous" onchange="storeConfig(this)">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                            <div class="configuration">
+                                <div class="col-md-10 config-text">
+                                    Permitir retroalimentación
+                                </div>
+                                <div class="col-md-2 toggle">
+                                    <label class="switch">
+                                        <input type="checkbox" onclick="storeConfig(this)">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                            <div class="configuration">
+                                <div class="col-md-10 config-text">
+                                    Permitir que el evaluador defina fortalezas y áreas de oportunidad del evaluado
+                                </div>
+                                <div class="col-md-2 toggle">
+                                    <label class="switch">
+                                        <input type="checkbox" onclick="storeConfig(this)">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                            <div class="configuration">
+                                <div class="col-md-10 config-text">
+                                    Permitir comentarios abiertos al evaluado
+                                </div>
+                                <div class="col-md-2 toggle">
+                                    <label class="switch">
+                                        <input type="checkbox" onclick="storeConfig(this)">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 full-height">
+                <div class="container-fluid full-height">
+                    <div class="row">
+                        <div class="wizard-instruction">
+                            <p>
+                                Utiliza el editor inferior para crear el mensaje de bienvendia que verán al ingresar a la evaluación.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row full-height">
+                        <div id="welcomeTextEditor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

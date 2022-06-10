@@ -26,26 +26,33 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+
+    <!-- Editor -->
+    <!-- Include stylesheet -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     
-         <!-- New evaluation -->
-    <div class="page" id="newEvaluation"></div>
-    <div class="page" id="evaluationStyle"></div>
-    <div class="page" id="evaluationConfig"></div>
-    <div class="page" id="remindersConfig"></div>
-    <div class="page" id="competences"></div>
-    <div class="page" id="behaviors"></div>
-    <div class="page" id="values"></div>
-    <div class="page" id="principles"></div>
-    <div class="page" id="evaluationType"></div>
-    <div class="page" id="scalesConfiguration"></div>
-    <div class="page" id="openQuestions"></div>
-    <div class="page" id="newtworkCreation"></div>
-    <div class="page" id="masiveNetwork"></div>
-    <div class="page" id="organigramNetwork"></div>
-    <div class="page" id="manualNetwork"></div>
-    <div class="page" id="networkGrades"></div>
+    <div id="pages-container">
+        <div class="page" id="newEvaluation"></div>
+        <div class="page" id="evaluationStyle"></div>
+        <div class="page" id="evaluationConfig"></div>
+        <div class="page" id="remindersConfig"></div>
+        <div class="page" id="competences"></div>
+        <div class="page" id="behaviors"></div>
+        <div class="page" id="values"></div>
+        <div class="page" id="principles"></div>
+        <div class="page" id="evaluationType"></div>
+        <div class="page" id="scalesConfiguration"></div>
+        <div class="page" id="openQuestions"></div>
+        <div class="page" id="newtworkCreation"></div>
+        <div class="page" id="masiveNetwork"></div>
+        <div class="page" id="organigramNetwork"></div>
+        <div class="page" id="manualNetwork"></div>
+        <div class="page" id="networkGrades"></div>
+    </div>
+    
 
      <div id="controls-container"">
         <div id="progress-container">
@@ -165,7 +172,13 @@
 <script src="js/evaluatorsConfig.js"></script>
 <script src="js/resumeConfig.js"></script> -->
 
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 <script src="js/wizard.js" type="module"></script>
+<script src="js/underscore-umd-min.js"></script>
+<script src="js/quillTextConfig.js"></script>
 <script src="js/optionSelector.js"></script>
+<script src="js/evaluationConfig.js"></script>
 
 </html> 

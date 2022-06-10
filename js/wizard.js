@@ -5,8 +5,6 @@ let currentTab = 0; // Current tab is set to be the first tab (0)
 let lastStep = 0;
 
 async function showTab(n) {
-
-    await loadPages();
     // This function will display the specified tab of the form ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
@@ -16,17 +14,11 @@ async function showTab(n) {
         
         document.getElementById("prevBtn").style.opacity = 0;
     } else {
-        if (n == 2) updateCatCounters();
+        //if (n == 2) updateCatCounters();
         document.getElementById("prevBtn").style.opacity = 1;
         document.getElementById("prevBtn").style.display = "inline";
     }
-    /* if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "";
-    } else {
-        document.getElementById("nextBtn").innerHTML = "";
-    } */
     
-
 }
 
 function nextPrev(n) {
@@ -38,7 +30,7 @@ function nextPrev(n) {
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
 
-    switch (currentTab) {
+    /* switch (currentTab) {
         case 1:
             localStorage.removeItem('evalName');
             localStorage.setItem('evalName', $('#evalName').val());
@@ -98,12 +90,12 @@ function nextPrev(n) {
     
         default:
             break;
-    }
+    } */
 
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
         //...the form gets submitted:
-        document.getElementById("configWizard").submit();
+    
         return false;
     }
     // Otherwise, display the correct tab:
@@ -116,8 +108,8 @@ function loadPages() {
     const pages = [
         'newEvaluation',
         'evaluationStyle',
-        /* 'evaluationConfig',
-        'remindersConfig',
+        'evaluationConfig',
+        /* 'remindersConfig',
         'competences',
         'behaviors',
         'values',
@@ -149,15 +141,12 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     nextPrev(-1);
 })
 
-$(document).ready( function() {
-    /* $('#evalName').val('');
-    $('#min-range').val('');
-    $('#max-range').val('');
-    $('#stars-type').prop('checked', true);
-    $('#unit-scale').prop('checked', true); */
+$(document).ready( async function() {
 
-    // Display the current tab
-    showTab(1); 
+    await loadPages();
+
+    showTab(2); 
+    initQuillTextEditor();
 
 })
 

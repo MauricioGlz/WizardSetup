@@ -1,24 +1,25 @@
-var selectedQuestions = [];
+function storeConfig(el) {
+    let status = el.checked;
+    let selectedConfig = el.closest('.configuration').querySelector('.config-text').innerText;
 
-$('input[name="questionVisible"]').on('change', (event) => {
-    let currentCat = $('#cateogry-type').val();
-    let currentQuestion = $(event.currentTarget).parents('.form-element').find('.element-name').text();
-    let activeCatQuestions = $('input[name="questionVisible"]:checked').length;
-    
-    $(`#${currentCat}`).html(activeCatQuestions);
+    let storedConfigs = getStoredConfig();
 
-    if ( $(event.currentTarget).is(':checked') )
-        selectedQuestions.push({category: currentCat, queston: currentQuestion});
-    else {
-        selectedQuestions = selectedQuestions.filter(selected => selected.queston !== currentQuestion )
-    }
+    /* if (status) {
+        
+        if (typeof storeConfigs == 'object') {
+            let config = _.findKey(storedConfigs, value => value === selectedConfig)
+        } else {
+            localStorage.setItem
+        }
 
-    console.log(selectedQuestions)
-})
+    } */
+    console.log('test');
+}
 
-function updateCatCounters() {
-    let currentCat = $('#cateogry-type').val();
-    let activeCatQuestions = $('input[name="questionVisible"]:checked').length;
-    
-    $(`#${currentCat}`).html(activeCatQuestions);
+function getStoredConfig() {
+    let configs = localStorage.getItem('configs');
+
+    if (configs == undefined) return false;
+
+    return JSON.parse(configs);
 }
