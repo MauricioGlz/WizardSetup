@@ -1,19 +1,19 @@
-function storeConfig(el) {
-    let status = el.checked;
-    let selectedConfig = el.closest('.configuration').querySelector('.config-text').innerText;
-
-    let storedConfigs = getStoredConfig();
-
-    /* if (status) {
-        
-        if (typeof storeConfigs == 'object') {
-            let config = _.findKey(storedConfigs, value => value === selectedConfig)
-        } else {
-            localStorage.setItem
+function storeConfig() {
+    let configurations = {}
+    document.querySelectorAll('.config-toggle').forEach( (toggle, index) => {
+        if (toggle.checked) {
+            configurations[index] = toggle.value
         }
+    })
+    localStorage.setItem('congigurations', JSON.stringify(configurations));
+    
+}
 
-    } */
-    console.log('test');
+function storeWelcomeMessage() {
+    let welcomeEditor = document.getElementById('welcomeTextEditor').__quill;
+    const content = welcomeEditor.root.innerHTML;
+
+    localStorage.setItem('welcome', content);
 }
 
 function getStoredConfig() {
@@ -23,3 +23,5 @@ function getStoredConfig() {
 
     return JSON.parse(configs);
 }
+
+export {storeConfig, storeWelcomeMessage}

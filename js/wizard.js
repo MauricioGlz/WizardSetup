@@ -1,4 +1,7 @@
 import { loadHTML } from "./loadExternals.js";
+import { storeNewEvaluation } from "./newEvaluation.js";
+import { storeOption, addEventsToCards } from "./optionSelector.js";
+import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
 
 
 let currentTab = 0; // Current tab is set to be the first tab (0)
@@ -30,34 +33,31 @@ function nextPrev(n) {
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
 
-    /* switch (currentTab) {
+    switch (currentTab) {
         case 1:
-            localStorage.removeItem('evalName');
-            localStorage.setItem('evalName', $('#evalName').val());
+            storeNewEvaluation();
             break;
 
         case 2:
-            localStorage.removeItem('selectedCompetences');
-            localStorage.setItem('selectedCompetences', JSON.stringify(selectedCompetences));
-            localStorage.removeItem('competenceType');
-            localStorage.setItem('competenceType', competenceType);
-            
+            storeOption();
             break;
 
         case 3:
-            let competenceCards = [];
+            /* let competenceCards = [];
             $('#competences-resume-card').toArray().forEach(card => {
                 competenceCards.push($(card).html()) 
             });
             localStorage.removeItem('questions');
             localStorage.setItem('questions', JSON.stringify(selectedQuestions));
             localStorage.removeItem('competenceCards');
-            localStorage.setItem('competenceCards', JSON.stringify(competenceCards));
+            localStorage.setItem('competenceCards', JSON.stringify(competenceCards)); */
+            storeConfig();
+            storeWelcomeMessage();
 
             break;
 
         case 4:
-            let answersElements = $('#answers-editor').find('.answer-element').toArray();
+           /*  let answersElements = $('#answers-editor').find('.answer-element').toArray();
             answersElements.forEach(element => {
                 let text = $(element).find('.element-name').text();
                 let val = $(element).find('.tag').text();
@@ -70,27 +70,27 @@ function nextPrev(n) {
             localStorage.removeItem('answerConfig');
             localStorage.setItem('answerConfig', JSON.stringify(answerConfig));
             localStorage.removeItem('answerScaleGraph');
-            localStorage.setItem('answerScaleGraph', answerScaleGraph);
+            localStorage.setItem('answerScaleGraph', answerScaleGraph); */
 
             break;
 
         case 5:
-            localStorage.removeItem('employeesToTest');
+            /* localStorage.removeItem('employeesToTest');
             localStorage.setItem('employeesToTest', JSON.stringify(employeesToTest));
             loadEvaluatorsConfig(employeesToTest);
-            break;
+            break; */
 
         case 6:
-            let selectedEvaluators = []
+            /* let selectedEvaluators = []
             localStorage.removeItem('selectedEvaluators');
-            localStorage.setItem('selectedEvaluators', JSON.stringify(selectedEvaluators));
+            localStorage.setItem('selectedEvaluators', JSON.stringify(selectedEvaluators)); */
             //clearResume();
             //loadResume();
             break;
     
         default:
             break;
-    } */
+    } 
 
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
@@ -108,6 +108,7 @@ function loadPages() {
     const pages = [
         'newEvaluation',
         'evaluationStyle',
+        'evaluationConfig',
         'evaluationConfig',
         /* 'remindersConfig',
         'competences',
@@ -141,12 +142,16 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     nextPrev(-1);
 })
 
+
+
 $(document).ready( async function() {
 
     await loadPages();
+    let welcomeMessage = document.getElementById('welcomeTextEditor');
 
-    showTab(2); 
-    initQuillTextEditor();
+    showTab(0); 
+    initQuillTextEditor([welcomeMessage]);
+    addEventsToCards();
 
 })
 

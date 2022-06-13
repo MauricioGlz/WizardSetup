@@ -1,7 +1,5 @@
 
-function initQuillTextEditor() {
-
-    let welcomeMessage = document.getElementById('welcomeTextEditor');
+function initQuillTextEditor(textEditors) {
 
     let toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -16,11 +14,14 @@ function initQuillTextEditor() {
         ['clean']                                         // remove formatting button
     ]
 
-    new Quill(welcomeMessage, {
-        theme: 'snow',
-        placeholder: 'Puedes utilizar las opciones de formato en la parte superior.',
-        modules: {
-            toolbar: toolbarOptions
-        }
-    });
+    textEditors.forEach( editor => {
+        new Quill(editor, {
+            theme: 'snow',
+            placeholder: 'Puedes utilizar las opciones de formato en la parte superior.',
+            modules: {
+                toolbar: toolbarOptions
+            }
+        });
+    })
+
 }
