@@ -1,0 +1,90 @@
+<div class="tab">
+    <div class="tab-title">Configura tus recordatorios</div>
+    <div class="tab-container" id="reminders">
+        <div class="row full-height">
+            <div class="col-md-6 full-height">
+                <div class="row reminder-list-container container-fluid">
+                    <div id="reminders-list">
+                        <div id="empty-reminder-text">
+                            <p>Aqui se mostrarán los recordatorios creados</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row container-fluid">
+                    <div class="btn btn-primary hoverButton" id="add-reminder">Agregar recordatorio</div>
+                </div>
+            </div>
+            <div class="col-md-6 full-height">
+                <div class="container-fluid full-height" id="reminder-controls">
+                    <div class="row height-10">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="reminder-title">Título</label>
+                                <input type="text" name="reminder-title" id="reminder-title" class="form-control">
+                            </div>
+                        </div>
+                       <div class="col-md-4">
+                        <label for="reminder-date">Fecha</label>
+                        <input type="date" name="reminder-date" id="reminder-date" class="form-control">
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-12 wizard-instruction">
+                            <p>Mensaje de notificación, puedes utilizar las variables de la parte inferior para agregar textos predefinidos</p>
+                        </div>
+                    </div>
+                    <div class="row height-50">
+                        <div class="col-md-12 full-height">
+                            <div id="reminders-text-editor"></div>
+                        </div>
+                    </div>
+                    <div class="row height-15">
+                        <div class="col-md-12 variables-container">
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                            <div class="variable">Prueba</div>
+                        </div>
+                    </div>
+                    <div class="row height-10">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="apply-for">Aplica para</label>
+                                <select name="appply-for" id="apply-for" class="form-control">
+                                    <option value="evaluators&evaluated">Evaluados y evaluadores</option>
+                                    <option value="evaluated">Evaluados</option>
+                                    <option value="evaluators">Evaluadores</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="margin-top: 23px;">
+                            <div class="btn btn-primary buttonHover" id="save-reminder-btn">Guardar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="reminder-template">
+    <div class="reminder-container col-md-12">
+        <div class="col-md-7 reminder-text"></div>
+        <div class="col-md-3">
+            <div class="tag tag-blue"></div>
+        </div>
+        <div class="col-md-2">
+            <i class="glyphicon glyphicon-trash"></i>
+        </div>
+    </div>
+</template>
+
+<template id="variable-template">
+    <div class="variable"></div>
+</template>

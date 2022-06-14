@@ -17,7 +17,6 @@ function initQuillTextEditor(textEditors) {
     textEditors.forEach( editor => {
         new Quill(editor, {
             theme: 'snow',
-            placeholder: 'Puedes utilizar las opciones de formato en la parte superior.',
             modules: {
                 toolbar: toolbarOptions
             }

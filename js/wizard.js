@@ -2,6 +2,7 @@ import { loadHTML } from "./loadExternals.js";
 import { storeNewEvaluation } from "./newEvaluation.js";
 import { storeOption, addEventsToCards } from "./optionSelector.js";
 import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
+import { addReminderEvents } from "./reminders.js";
 
 
 let currentTab = 0; // Current tab is set to be the first tab (0)
@@ -109,9 +110,9 @@ function loadPages() {
         'newEvaluation',
         'evaluationStyle',
         'evaluationConfig',
-        'evaluationConfig',
-        /* 'remindersConfig',
+        'remindersConfig',
         'competences',
+        /* 
         'behaviors',
         'values',
         'principles',
@@ -147,12 +148,14 @@ document.getElementById('prevBtn').addEventListener('click', () => {
 $(document).ready( async function() {
 
     await loadPages();
-    let welcomeMessage = document.getElementById('welcomeTextEditor');
+    let welcomeMessage = document.getElementById('welcome-text-editor');
+    let reminderMessage = document.getElementById('reminders-text-editor');
 
-    showTab(0); 
-    initQuillTextEditor([welcomeMessage]);
+    showTab(currentTab); 
+    initQuillTextEditor([welcomeMessage, reminderMessage]);
     addEventsToCards();
-
+    addReminderEvents();
+    
 })
 
 

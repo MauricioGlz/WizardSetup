@@ -10,7 +10,7 @@ function storeConfig() {
 }
 
 function storeWelcomeMessage() {
-    let welcomeEditor = document.getElementById('welcomeTextEditor').__quill;
+    let welcomeEditor = document.getElementById('welcome-text-editor').__quill;
     const content = welcomeEditor.root.innerHTML;
 
     localStorage.setItem('welcome', content);
