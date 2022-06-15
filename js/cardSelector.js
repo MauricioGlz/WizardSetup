@@ -1,11 +1,10 @@
+/* Note: This is legacy code, it uses jQuery event delegations,
+needs to be refactored to be modular*/
+
 var selectedCompetences = [];
 var competenceType;
 
-$('input[name="eval-type"]').on('change', () => {
-    competenceType = $('input[name="eval-type"]:checked').val();
-})
-
-$('.element-card').on('click', (event) => {
+$('#competences').on('click', '.element-card', (event) => {
     let competenceTitle = $(event.currentTarget).children('.element-title').text();
 
     if (!$(event.currentTarget).hasClass('selected')) {
@@ -23,7 +22,7 @@ $('.element-card').on('click', (event) => {
     console.log(selectedCompetences);
 });
 
-$('.element-card').on('mouseover', (event) => {
+$('#competences').on('mouseover', '.element-card', (event) => {
     let cardText = $(event.currentTarget).children('.element-description');
 
     if (cardText[0].scrollHeight > cardText.height()) {
@@ -32,7 +31,7 @@ $('.element-card').on('mouseover', (event) => {
     }
 });
 
-$('.element-card').on('mouseout', (event) => {
+$('#competences').on('mouseout', '.element-card', (event) => {
     let cardText = $(event.currentTarget).children('.element-description');
 
     $(event.currentTarget).height('132px');
@@ -40,7 +39,7 @@ $('.element-card').on('mouseout', (event) => {
 });
 
 // Search
-$('#type-search').keyup( event => {
+$('#competences').on('keyup', '#type-search', (event) => {
     let allCards = $('.element-card').toArray();
     let searchString = $(event.currentTarget).val();
 
