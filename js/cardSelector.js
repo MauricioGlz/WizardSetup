@@ -25,7 +25,7 @@ $('#competences').on('click', '.element-card', (event) => {
 $('#competences').on('mouseover', '.element-card', (event) => {
     let cardText = $(event.currentTarget).children('.element-description');
 
-    if (cardText[0].scrollHeight > cardText.height()) {
+    if (cardText[0].scrollHeight > cardText[0].offsetHeight) {
         $(event.currentTarget).height('200px');
         cardText.addClass('no-description-overflow');
     }
