@@ -1,4 +1,5 @@
 let isSelected = false;
+let reminders = [];
 
 function createReminder() {
 
@@ -20,7 +21,9 @@ function addReminder() {
     const content = reminderEditor.root.innerHTML;
 
     if (!isSelected) {
+
         const template = document.getElementById('reminder-template').content.cloneNode(true);
+
         template.querySelector('.reminder-text').innerText = title;
         template.querySelector('.tag').innerText = date;
         template.querySelector('.reminder-container').setAttribute('data-content', content);
@@ -39,6 +42,7 @@ function addReminder() {
         selected.setAttribute('data-content', content)
     }
 
+    reminders.push({title, date, applyFor, content});
     clearConfig()
 
 }
@@ -78,6 +82,9 @@ function loadReminder(event) {
     isSelected = true;
 }
 
-export {
-    addReminderEvents
+function storeReminders() {
+    localStorage.setItem('reminders', JSON.stringify(reminders));
 }
+
+
+export { addReminderEvents, storeReminders }

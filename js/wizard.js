@@ -2,10 +2,10 @@ import { loadHTML } from "./loadExternals.js";
 import { storeNewEvaluation } from "./newEvaluation.js";
 import { storeOption, addEventsToCards } from "./optionSelector.js";
 import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
-import { addReminderEvents } from "./reminders.js";
+import { addReminderEvents, storeReminders } from "./reminders.js";
 
 
-let currentTab = 4; // Current tab is set to be the first tab (0)
+let currentTab = 0; // Current tab is set to be the first tab (0)
 let lastStep = 0;
 
 async function showTab(n) {
@@ -44,38 +44,20 @@ function nextPrev(n) {
             break;
 
         case 3:
-            /* let competenceCards = [];
-            $('#competences-resume-card').toArray().forEach(card => {
-                competenceCards.push($(card).html()) 
-            });
-            localStorage.removeItem('questions');
-            localStorage.setItem('questions', JSON.stringify(selectedQuestions));
-            localStorage.removeItem('competenceCards');
-            localStorage.setItem('competenceCards', JSON.stringify(competenceCards)); */
             storeConfig();
             storeWelcomeMessage();
 
             break;
 
         case 4:
-           /*  let answersElements = $('#answers-editor').find('.answer-element').toArray();
-            answersElements.forEach(element => {
-                let text = $(element).find('.element-name').text();
-                let val = $(element).find('.tag').text();
-                let color = $(element).find('.tag').css('background-color');
-                answerConfig.push({text, val, color});
-            });
-            let answerScaleGraph = $("#answer-bar-preview").html();
-            localStorage.removeItem('answerType');
-            localStorage.setItem('answerType', answerType);
-            localStorage.removeItem('answerConfig');
-            localStorage.setItem('answerConfig', JSON.stringify(answerConfig));
-            localStorage.removeItem('answerScaleGraph');
-            localStorage.setItem('answerScaleGraph', answerScaleGraph); */
-
+            storeReminders();
             break;
 
         case 5:
+            /* Legacy code, needs to be updated to use modular structure */
+            localStorage.removeItem('selectedCompetences');
+            localStorage.setItem('selectedCompetences', JSON.stringify(selectedCompetences));
+
             /* localStorage.removeItem('employeesToTest');
             localStorage.setItem('employeesToTest', JSON.stringify(employeesToTest));
             loadEvaluatorsConfig(employeesToTest);
