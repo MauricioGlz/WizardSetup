@@ -26,7 +26,7 @@ $('#competences').on('mouseover', '.element-card', (event) => {
     let cardText = $(event.currentTarget).children('.element-description');
 
     if (cardText[0].scrollHeight > cardText[0].offsetHeight) {
-        $(event.currentTarget).height('200px');
+        $(event.currentTarget).height('210px');
         cardText.addClass('no-description-overflow');
     }
 });
@@ -34,7 +34,7 @@ $('#competences').on('mouseover', '.element-card', (event) => {
 $('#competences').on('mouseout', '.element-card', (event) => {
     let cardText = $(event.currentTarget).children('.element-description');
 
-    $(event.currentTarget).height('132px');
+    $(event.currentTarget).height('140px');
     cardText.removeClass('no-description-overflow');
 });
 

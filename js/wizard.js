@@ -5,7 +5,7 @@ import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
 import { addReminderEvents } from "./reminders.js";
 
 
-let currentTab = 0; // Current tab is set to be the first tab (0)
+let currentTab = 4; // Current tab is set to be the first tab (0)
 let lastStep = 0;
 
 async function showTab(n) {
