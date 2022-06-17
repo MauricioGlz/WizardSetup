@@ -43,6 +43,9 @@ label {
     font-size: 1em;
 }
 
+* {
+    font-family: 'Poppins';
+}
 
 
 #background-overlay {
@@ -207,9 +210,6 @@ input.invalid {
     font-size: 14px;
 }
 
-.card-section {
-    width: 18%;
-}
 
 .tab-section {
     width: 64%;
@@ -228,6 +228,7 @@ input.invalid {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 5px;
+    user-select: none;
 }
 
 .element-name {
@@ -241,8 +242,6 @@ input.invalid {
     width: 20%;
     margin: auto;
 }
-
-.element-type 
 
 
 .element-tool-box {
@@ -337,12 +336,6 @@ input.invalid {
     align-items: center;
 }
 
-.floating-middle {
-    height: 114px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .questions-category {
     font-family: 'Poppins-SemiBold';
@@ -363,36 +356,7 @@ input.invalid {
     color: #828282;
 }
 
-.questions-area {
-    height: 60vh;
-}
 
-.floating-small {
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-.selected-cat {
-    padding: 5px;
-    font-size: 14px;
-    color: #4f4f4f;
-}
-
-.badge {
-    display: inline-block;
-    min-width: 16px;
-    padding: 7px 12px;
-    border-radius: 50%;
-    font-size: 19px;
-    text-align: center;
-    background: #1779ba;
-    color: #fefefe;
-    transform: scale(.6);
-    margin-left: auto;
-}
 
 /* Answers type */
 
@@ -847,7 +811,7 @@ input.invalid {
 
 #pages-container {
     position: relative;
-    height: 93%;
+    height: 90%;
 }
 
 #controls-container {
@@ -1237,7 +1201,7 @@ input:checked+.slider:before {
 .middle-container {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 3rem;
+    row-gap: 10px;
     column-gap: 5rem;
     justify-content: center;
     margin-top: 5px;
@@ -1307,7 +1271,7 @@ input:checked+.slider:before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -1325,4 +1289,118 @@ input:checked+.slider:before {
     color: #4F4F4F;
     padding: 5px;
     text-align: center;
+}
+
+
+.form-element {
+    background-color: #F1F1F1;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    min-height: 44px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.element-name {
+    font-family: 'Poppins';
+    width: 90%;
+    font-size: 14px;
+    margin: auto 0 auto 15px;
+}
+
+.element-type {
+    width: 20%;
+    margin: auto;
+}
+
+
+.element-tool-box {
+    width: 10%;
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.element-toggle-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.element-toggle-container>span {
+    font-size: 9px;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+.element-actions-container {
+    display: flex;
+    margin-left: 10px;
+}
+
+.questions-area {
+    margin-top: 0px;
+}
+
+.floating-card {
+    width: 180px;
+    height: 201px;
+    border-radius: 6px;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 2px 6px 0px rgba(138, 138, 138, 0.5);
+}
+
+.floating-middle {
+    height: 114px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-small {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.selected-cat {
+    padding: 5px;
+    font-size: 14px;
+    color: #4f4f4f;
+}
+
+.badge {
+    margin-left: auto;
+    margin-right: 10px;
+    background-color: var(--primary-color) !important;
+/*     display: inline-block;
+    min-width: 16px;
+    padding: 7px 12px;
+    border-radius: 50%;
+    font-size: 19px;
+    text-align: center;
+    background: #1779ba;
+    color: #fefefe;
+    transform: scale(.6);
+     */
+}
+
+#scalesConfiguration {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: auto;
+    position: relative;
+    height: 95%;
 }

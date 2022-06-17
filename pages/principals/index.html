@@ -1,0 +1,73 @@
+<div class="tab">
+    <div class="tab-title">Selecciona los principios</div>
+    <div class="tab-container" id="evaluationConfiguration">
+        <div class="row full-height">
+            <div class="col-md-12 full-height">
+                <div class="container-fluid full-height">
+                    <div class="col-md-3 full-height">
+                        <div class="card-section" id="competences-resume-card">
+                            <div class="floating-card floating-small">
+                                <div class="selected-cat" >Competencia 1</div>
+                                <span class="badge" id="comp-1">0</span>
+                            </div>
+                            <div class="floating-card floating-small">
+                                <div class="selected-cat">Competencia 2</div>
+                                <span class="badge" id="comp-2">0</span>
+                            </div>
+                            <div class="floating-card floating-small">
+                                <div class="selected-cat">Competencia 3</div>
+                                <span class="badge" id="comp-3">0</span>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-md-9 full-height">
+                        <div class="controls-area">
+                            <div class="form-group">
+                                <label for="behaviors-list">Mostrar principios de</label>
+                                <select name="behaviors-list" id="behaviors-list" class="form-control">
+                                    <option value="-">-</option>
+                                    <option value="comp-1">Competencia 1</option>
+                                    <option value="comp-2">Competencia 2</option>
+                                    <option value="comp-3">Competencia 3</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="selector-area questions-area height-85">
+                            <div class="middle-container">
+                                <!-- You need to replace all this when loading a new competence -->
+                                <div class="form-element">
+                                    <div class="element-name">Pregunta de la competencia. 1</div>
+                                    <div class="element-tool-box">
+                                        <div class="element-toggle-container">
+                                            <label class="switch">
+                                                <input type="checkbox" name="questionVisible">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <div class="white-space"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template>
+    <div class="form-element">
+        <div class="element-name"></div>
+        <div class="element-tool-box">
+            <div class="element-toggle-container">
+                <label class="switch">
+                    <input type="checkbox" name="questionVisible">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</template>
