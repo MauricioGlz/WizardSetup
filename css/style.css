@@ -1,6 +1,7 @@
 :root {
     --primary-color: #796EF0;
     --potentor-blue: #796EF0;
+    --border-color: #d2d2d2;
 }
 
 @font-face {
@@ -217,73 +218,7 @@ input.invalid {
 
 
 
-/* Evaluation configuration  */
 
-.form-element {
-    background-color: #F1F1F1;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    height: 44px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    user-select: none;
-}
-
-.element-name {
-    font-family: 'Poppins';
-    width: 90%;
-    font-size: 14px;
-    margin: auto 0 auto 15px;
-}
-
-.element-type {
-    width: 20%;
-    margin: auto;
-}
-
-
-.element-tool-box {
-    width: 10%;
-    display: inline-flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-}
-
-.element-toggle-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    margin: 0 5px;
-}
-
-.element-toggle-container>span {
-    font-size: 9px;
-    color: #000;
-    font-family: 'Poppins';
-    font-weight: 300;
-    margin-bottom: 2px;
-}
-
-.element-actions-container {
-    display: flex;
-    margin-left: 10px;
-}
-
-.action-btn {
-    width: 25px;
-    height: 25px;
-    margin: auto 5px;
-
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
 
 .potentor-btn {
     background-color: var(--primary-color);
@@ -849,7 +784,7 @@ input.invalid {
 
 .tab-container {
     margin: 15% auto auto auto;
-    border: 1px solid #D2D2D2;
+    border: 1px solid var(--border-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 20px;
@@ -881,7 +816,7 @@ input.invalid {
     width: 376px;
     height: 113px;
     border-radius: 5px;
-    border: 1px solid #D2D2D2;
+    border: 1px solid var(--border-color);
     cursor: pointer;
     display: block;
     user-select: none;
@@ -953,7 +888,7 @@ input.invalid {
 
 .configuration {
     font-family: 'Poppins';
-    border-bottom: 1px solid #d2d2d2;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     min-height: 40px;
@@ -1038,7 +973,7 @@ input:checked+.slider:before {
 }
 
 #reminders-list {
-    border: 1px solid #d2d2d2;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     height: 100%;
     overflow-y: auto;
@@ -1123,7 +1058,7 @@ input:checked+.slider:before {
     width: 160px;
     height: 35px;
     border-radius: 5px;
-    border: 1px solid #d2d2d2;
+    border: 1px solid var(--border-color);
     line-height: 35px;
     user-select: none;
     cursor: pointer;
@@ -1141,7 +1076,7 @@ input:checked+.slider:before {
 
 
 .reminder-container {
-    border-bottom: 1px solid #d2d2d2;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .height-5 {
@@ -1298,7 +1233,7 @@ input:checked+.slider:before {
     align-items: center;
     position: relative;
     min-height: 44px;
-    width: 100%;
+    width: 99%;
     margin-bottom: 15px;
     border-radius: 5px;
 }
@@ -1403,4 +1338,121 @@ input:checked+.slider:before {
     margin-bottom: auto;
     position: relative;
     height: 95%;
+}
+
+.graphical-type-selector-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 20px;
+}
+
+.option-btn {
+    background: white;
+    display: block;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    width: fit-content;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.option-btn:hover {
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.3));
+}
+
+.option-btn.active {
+    color: white;
+    background-color: var(--primary-color);
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.3));
+}
+
+.level-selector-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+#answers-editor {
+    margin-top: 20px;
+}
+/* Evaluation configuration  */
+.element-name {
+    font-family: 'Poppins';
+    width: 90%;
+    font-size: 14px;
+    margin: auto 0 auto 15px;
+}
+
+.element-type {
+    width: 20%;
+    margin: auto;
+}
+
+
+.element-tool-box {
+    width: 10%;
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.element-toggle-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.element-toggle-container>span {
+    font-size: 9px;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+.element-actions-container {
+    display: flex;
+    margin-left: 10px;
+}
+
+.action-btn {
+    width: 25px;
+    height: 25px;
+    margin: auto 5px;
+
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.answer-range-container {
+    display: flex;
+    gap: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.sp-replacer {
+    width: 4rem !important;
+    height: 2.5rem !important;
+    border-radius: 5px !important;
+}
+
+.color-picker-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#angry-select {
+    background-image: url('../assets/images/reaccion/angry.png');
 }

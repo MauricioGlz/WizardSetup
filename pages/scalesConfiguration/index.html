@@ -1,0 +1,163 @@
+<div class="tab">
+    <div class="tab-title">Configura tu escala</div>
+    <div class="tab-container" id="scalesConfiguration">
+        <div class="row full-height">
+            <div class="col-md-3 full-height">
+                <div class="col">
+                    <div class="wizard-instruction">
+                        <p>Selecciona la representación
+                            gráfica que desea utilizar.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="graphical-type-selector-container">
+                        <div class="form-group">
+                            <input type="radio" name="graphical-type" id="stars-type" checked>
+                            <label for="stars-type">Estrellas</label>
+                            <div class="graphical-banner option-btn">
+                                <img src="../../assets/images/selector_estrella.png" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="graphical-type" id="stars-type">
+                            <label for="stars-type">Numeración</label>
+                            <div class="graphical-banner option-btn">
+                                <img src="../../assets/images/selector_numero.png" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="graphical-type" id="stars-type">
+                            <label for="stars-type">Pulso</label>
+                            <div class="graphical-banner option-btn">
+                                <img src="../../assets/images/selector_reaccion.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 full-height">
+                <div class="row">
+                    <div class="col-md-9 level-selector-container">
+                        <div class="wizard-instruction">Elige el tipo<br>de nivel</div>
+                        <div class="option-btn active">Valor particular</div>
+                        <div class="option-btn">Valor rango</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="btn btn-primary buttonHover">Agregar respuesta</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="answers-editor">
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Sobre pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-green">5</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#myModal">
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Cumple pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-blue">4</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">Cumple medianamente pasa las expectativas</div>
+                            <div class="element-type"><div class="tag tag-orange">3</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">En ocasiones cumple con las expectativas</div>
+                            <div class="element-type"><div class="tag tag-yellow">2</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+
+                        <div class="form-element answer-element">
+                            <div class="element-name">No cumple las expectativas</div>
+                            <div class="element-type"><div class="tag tag-red">1</div></div>
+                            <div class="element-tool-box">
+                                <div class="element-actions-container">
+                                    <div class="action-btn default-btn edit-icon" >
+                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placeholder"></div>    
+                        </div>
+                    </div>
+
+                    <div id="answer-bar-preview">
+                        <div class="answers-counter-container">
+                            <div class="answer-counter">1</div>
+                            <div class="answer-counter">2</div>
+                            <div class="answer-counter">3</div>
+                            <div class="answer-counter">4</div>
+                            <div class="answer-counter">5</div>
+                        </div>
+                        <div class="answer-bar-container">
+                            <div class="answer-bar" style="background-color: #FD2C2C;"></div>
+                            <div class="answer-bar" style="background-color: #EEE657;"></div>
+                            <div class="answer-bar" style="background-color: #F37021;"></div>
+                            <div class="answer-bar" style="background-color: #0089D0;"></div>
+                            <div class="answer-bar" style="background-color: #29C88F;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<template id="asnwer-bar-template">
+    <div class="form-element answer-element">
+        <div class="element-name"></div>
+        <div class="element-type"><div class="tag tag-red"></div></div>
+        <div class="element-tool-box">
+            <div class="element-actions-container">
+                <div class="action-btn default-btn edit-icon" >
+                    <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                </div>
+                <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                    <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder"></div>    
+    </div>
+</template>

@@ -1,8 +1,14 @@
+/* 
+Note: 
+This is legacy code, it uses jQuery event delegations, inner HTML code
+needs to be refactored to be modular and use template tag.
+*/
+
 var answerToEdit;
 var answerType;
 var answerConfig = [];
 
-$('input[name="answer-type"').change( (event) => {
+$('#scalesConfiguration').on('change', 'input[name="answer-type"', (event) => {
 
     let selectedVal = $(event.currentTarget).val()
     if ($(event.currentTarget).is(':checked') && selectedVal == 'stars') {
@@ -27,7 +33,7 @@ $('input[name="answer-type"').change( (event) => {
 
 });
 
-$('input[name="scale-type"').change( event => {
+$('#scalesConfiguration').on('change', 'input[name="scale-type"]', (event) => {
     let scaleType = $(event.currentTarget).val();
     let answers = $('.answer-element').toArray();
     const scale100 = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"].reverse();
@@ -48,13 +54,12 @@ $('input[name="scale-type"').change( event => {
     }
 });
 
-$('#answers-editor').on('click', '.edit-icon', function () {
+$('#scalesConfiguration').on('click', '.edit-icon', function () {
     $('#answer-text').val('');
     answerToEdit = $(this).parents('.answer-element');
     let totalAnswers = $('.answer-element').length;
     let currentAnswerColor = answerToEdit.find('.tag').css('background-color');
 
-    editAnswerModal.style.display = "block";
 
     if ($('#unit-100').is(':checked') ) {
         $('#min-range').prop('disabled', false);
@@ -76,7 +81,6 @@ $('#answers-editor').on('click', '.edit-icon', function () {
 
     let currentAnswerText = $(this).parents('.answer-element').find('.element-name').text();
   
-    $('#answer-text').prop('placeholder', currentAnswerText);
     $('#color-picker').spectrum('set', currentAnswerColor);
 
 });
@@ -122,6 +126,10 @@ function removeAnswer(event) {
     syncColors();
 }
 
+
+/** 
+ * TODO: Replace internal HTML to a template style
+ * */
 function addAnswer() {
     let totalAsnwers = $('.answer-element').length;
 

@@ -18,4 +18,30 @@ function addEventsToCards() {
 	})
 }
 
-export { storeOption, addEventsToCards }
+function allowGraphicalSelector() {
+	let selectors = Array.from(document.getElementsByClassName('graphical-banner'));
+
+	selectors.forEach( selector => {
+		selector.addEventListener('click', event => {
+			let graphical = event.currentTarget;
+			let input = graphical.parentElement.querySelector('input')
+
+			input.checked = true;
+		})
+	})
+}
+
+function allowOptionBtns() {
+	let optionBtns = Array.from(document.getElementsByClassName('option-btn'));
+
+	optionBtns.forEach(btn => {
+		btn.addEventListener('click', event => {
+			optionBtns.forEach(btn => btn.classList.remove('active'))
+			let option = event.currentTarget;
+
+			option.classList.toggle('active')
+		})
+	})
+}
+
+export { storeOption, addEventsToCards, allowGraphicalSelector, allowOptionBtns }

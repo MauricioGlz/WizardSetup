@@ -32,17 +32,6 @@
     /* Could be more or less, depending on screen size */
 }
 
-#editAnswer .modal-text{
-    text-align: left;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-#answer-text {
-    height: 12px;
-    text-align: left;
-}
-
 .edit-answer-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -109,12 +98,6 @@
     width: 40%;
 }
 
-.modal-text {
-    font-family: 'Poppins';
-    font-size: 12px;
-    width: 100%;
-    text-align: center;
-}
 
 .modal-buttons {
     display: inline-block;

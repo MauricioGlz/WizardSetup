@@ -1,8 +1,9 @@
 import { loadHTML } from "./loadExternals.js";
 import { storeNewEvaluation } from "./newEvaluation.js";
-import { storeOption, addEventsToCards } from "./optionSelector.js";
+import { storeOption, addEventsToCards, allowGraphicalSelector, allowOptionBtns } from "./optionSelector.js";
 import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
 import { addReminderEvents, storeReminders } from "./reminders.js";
+import { allowModalsEvents } from "./modal.js";
 
 
 let currentTab = 9; // Current tab is set to be the first tab (0)
@@ -152,6 +153,8 @@ $(document).ready(async function () {
     showTab(currentTab);
     initQuillTextEditor([welcomeMessage, reminderMessage]);
     addEventsToCards();
+    allowGraphicalSelector();
+    allowOptionBtns();
     addReminderEvents();
 
 })
