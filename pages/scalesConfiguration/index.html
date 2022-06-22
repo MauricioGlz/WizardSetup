@@ -12,21 +12,21 @@
                 <div class="col">
                     <div class="graphical-type-selector-container">
                         <div class="form-group">
-                            <input type="radio" name="graphical-type" id="stars-type" checked>
+                            <input type="radio" name="graphical-type" id="stars-type" value="stars" checked>
                             <label for="stars-type">Estrellas</label>
-                            <div class="graphical-banner option-btn">
+                            <div class="graphical-banner option-btn active">
                                 <img src="../../assets/images/selector_estrella.png" alt="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="radio" name="graphical-type" id="stars-type">
+                            <input type="radio" name="graphical-type" id="stars-type" value="num">
                             <label for="stars-type">Numeración</label>
                             <div class="graphical-banner option-btn">
                                 <img src="../../assets/images/selector_numero.png" alt="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="radio" name="graphical-type" id="stars-type">
+                            <input type="radio" name="graphical-type" id="stars-type" value="reaction">
                             <label for="stars-type">Pulso</label>
                             <div class="graphical-banner option-btn">
                                 <img src="../../assets/images/selector_reaccion.png" alt="">
@@ -43,18 +43,18 @@
                         <div class="option-btn">Valor rango</div>
                     </div>
                     <div class="col-md-3">
-                        <div class="btn btn-primary buttonHover">Agregar respuesta</div>
+                        <div class="btn btn-primary buttonHover" onclick="addAnswer()">Agregar respuesta</div>
                     </div>
                 </div>
-                <div class="row">
-                    <div id="answers-editor">
+                <div class="row full-height">
+                    <div id="answers-editor" class="height-80">
 
                         <div class="form-element answer-element">
                             <div class="element-name">Sobre pasa las expectativas</div>
                             <div class="element-type"><div class="tag tag-green">5</div></div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#myModal">
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
                                         <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
                                     </div>
                                 </div>
@@ -82,6 +82,9 @@
                                 <div class="element-actions-container">
                                     <div class="action-btn default-btn edit-icon" >
                                         <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    </div>
+                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
+                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
                                     </div>
                                 </div>
                             </div>

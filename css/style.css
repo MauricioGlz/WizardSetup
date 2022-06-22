@@ -1099,6 +1099,10 @@ input:checked+.slider:before {
     height: 50%;
 }
 
+.height-80 {
+    height: 80%;
+}
+
 .height-85 {
     height: 85%;
 }
@@ -1359,6 +1363,11 @@ input:checked+.slider:before {
     transition: all .3s;
 }
 
+.option-btn.small {
+    width: 40px;
+    height: 40px;
+}
+
 .option-btn:hover {
     filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.3));
 }
@@ -1377,6 +1386,7 @@ input:checked+.slider:before {
 
 #answers-editor {
     margin-top: 20px;
+    overflow-y: auto;
 }
 /* Evaluation configuration  */
 .element-name {
@@ -1443,8 +1453,8 @@ input:checked+.slider:before {
 }
 
 .sp-replacer {
-    width: 4rem !important;
-    height: 2.5rem !important;
+    width: 100% !important;
+    height: 3.5rem !important;
     border-radius: 5px !important;
 }
 
@@ -1453,6 +1463,51 @@ input:checked+.slider:before {
     flex-direction: column;
 }
 
+.sp-dd {
+    padding: 10px 2px 0px 2px !important;
+}
+
+.sp-container button.sp-choose {
+    background-color: var(--primary-color) !important;
+    padding: 0 20px;
+}
+
+#emoji-selector {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.emoji-opt {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+}
+
 #angry-select {
     background-image: url('../assets/images/reaccion/angry.png');
+}
+
+#sad-select {
+    background-image: url('../assets/images/reaccion/sad.png');
+}
+
+#neutral-select {
+    background-image: url('../assets/images/reaccion/neutral.png');
+}
+
+#smiling-select {
+    background-image: url('../assets/images/reaccion/smilling.png');
+}
+
+#happy-select {
+    background-image: url('../assets/images/reaccion/happy.png');
+}
+
+#like-select {
+    background-image: url('../assets/images/reaccion/thumbUp.png');
+}
+
+#dislike-select {
+    background-image: url('../assets/images/reaccion/thumbDown.png');
 }

@@ -1,16 +1,23 @@
-/* 
-Note: 
-This is legacy code, it uses jQuery event delegations, inner HTML code
-needs to be refactored to be modular and use template tag.
+/*
+* Note: 
+* This is legacy code, it uses jQuery event delegations, inner HTML code
+* needs to be refactored to be modular and use template tag.
 */
 
 var answerToEdit;
 var answerType;
 var answerConfig = [];
+let totalAsnwers = 0;
+let reactionWaring = false;
+
+function getTotalAnswers() {
+    return $('.answer-element').length;
+}
 
 $('#scalesConfiguration').on('change', 'input[name="answer-type"', (event) => {
 
     let selectedVal = $(event.currentTarget).val()
+
     if ($(event.currentTarget).is(':checked') && selectedVal == 'stars') {
         $('#text-answer-configurator').hide();
         $('#answer-preview-img').show();
@@ -55,6 +62,12 @@ $('#scalesConfiguration').on('change', 'input[name="scale-type"]', (event) => {
 });
 
 $('#scalesConfiguration').on('click', '.edit-icon', function () {
+
+    let graphicalType = getGraphicalType();
+
+    if (graphicalType == 'reaction') $('#reaction-container').removeClass('hidden');
+    else $('#reaction-container').addClass('hidden');
+
     $('#answer-text').val('');
     answerToEdit = $(this).parents('.answer-element');
     let totalAnswers = $('.answer-element').length;
@@ -89,20 +102,15 @@ $('#color-picker').spectrum({
     type: "color",
     locale: "es",
     togglePaletteOnly: true,
-    showButtons: false
+    showButtons: true
 });
 
 
 function removeAnswer(event) {
-    let totalAsnwers = $('.answer-element').length;
+
     let totalBarsArr = $('.answer-counter').toArray();
 
     $(event.currentTarget).parents('.answer-element').remove();
-
-    if (totalAsnwers <=5) {
-        $('#addAnswer').prop('disabled', false);
-        $('#addAnswer').removeClass('disabled-btn');
-    }
     
     // Checks if answers were added manually to remove first or last
     if ($.trim($('.answer-counter').first().text())  != '-') {
@@ -118,9 +126,15 @@ function removeAnswer(event) {
         }
     } 
     else  {
-        
         $('.answer-counter').first().remove();
         $('.answer-bar').first().remove();
+    }
+
+    totalAsnwers = getTotalAnswers();
+    if (totalAsnwers <= 5 ) reactionWaring = false;
+    if (totalAsnwers <= 2) {
+        $('.like-dislike').removeClass('hidden');
+        $('.emoji-reaction').addClass('hidden');
     }
 
     syncColors();
@@ -131,7 +145,6 @@ function removeAnswer(event) {
  * TODO: Replace internal HTML to a template style
  * */
 function addAnswer() {
-    let totalAsnwers = $('.answer-element').length;
 
     $('#answers-editor').append(`
         <div class="form-element answer-element">
@@ -139,7 +152,7 @@ function addAnswer() {
             <div class="element-type"><div class="tag tag-red">-</div></div>
             <div class="element-tool-box">
                 <div class="element-actions-container">
-                    <div class="action-btn default-btn edit-icon" >
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
                         <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
                     </div>
                     <div class="action-btn delete-btn" onclick="removeAnswer(event)">
@@ -154,10 +167,19 @@ function addAnswer() {
     $('.answers-counter-container').prepend('<div class="answer-counter"> - </div>');
     $('.answer-bar-container').prepend(' <div class="answer-bar" style="background-color: #FD2C2C;"></div>');
 
-    if (totalAsnwers + 1 == 5) {
-        $('#addAnswer').prop('disabled', true);
-        $('#addAnswer').addClass('disabled-btn');
+    if (getGraphicalType() == 'reaction') {
+        let totalAnswers = getTotalAnswers();
+        if (totalAnswers >= 2) {
+            $('.like-dislike').addClass('hidden');
+            $('.emoji-reaction').removeClass('hidden');
+        }
+        if (totalAnswers >= 6 && reactionWaring == false) {
+            $('#reaction-limit').modal({show: 'true'});
+            reactionWaring = true;
+        }
+        
     }
+
     
 }
 
@@ -171,6 +193,10 @@ function syncColors() {
     })
 }
 
+
+function getGraphicalType() {
+    return  $('input[name="graphical-type"]:checked').val();
+}
 
 function updateAnswer() {
     let newColor = $("#color-picker").val();

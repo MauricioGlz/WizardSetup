@@ -36,10 +36,14 @@ function allowOptionBtns() {
 
 	optionBtns.forEach(btn => {
 		btn.addEventListener('click', event => {
-			optionBtns.forEach(btn => btn.classList.remove('active'))
+			let container = event.currentTarget.offsetParent;
 			let option = event.currentTarget;
+			let isChild = container.contains(option);
 
-			option.classList.toggle('active')
+			if (isChild) {
+				container.querySelectorAll('.active').forEach(opt => opt.classList.remove('active'))
+				option.classList.toggle('active')
+			}
 		})
 	})
 }

@@ -67,7 +67,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="answersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -99,24 +99,51 @@
                                 <input name="color-picker" id="color-picker" value='#276cb8'/>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="reaction-selector"></label>
-                                <select name="reaction-selector" id="reactions-selector">
-                                    <option value="angry" id="angry-select">molesto</option>
-                                    <option value="sad"></option>
-                                    <option value="neutral"></option>
-                                    <option value="smilling"></option>
-                                    <option value="happy"></option>
-                                </select>
+                        <div class="col-md-6 hidden" id="reaction-container">
+                            <label for="selector">Selecciona la reacción</label>
+                            <div id="emoji-selector">
+                                <div class="option-btn small emoji-opt emoji-reaction" id="angry-select"></div>
+                                <div class="option-btn small emoji-opt emoji-reaction" id="sad-select"></div>
+                                <div class="option-btn small emoji-opt emoji-reaction" id="neutral-select"></div>
+                                <div class="option-btn small emoji-opt emoji-reaction" id="smiling-select"></div>
+                                <div class="option-btn small emoji-opt emoji-reaction" id="happy-select"></div>
+                                <div class="option-btn small emoji-opt hidden like-dislike" id="like-select"></div>
+                                <div class="option-btn small emoji-opt hidden like-dislike" id="dislike-select"></div>
+                                
                             </div>
                         </div>
                     </div>
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="updateAnswer()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- reaction limit modal warning -->
+    <div class="modal fade" id="reaction-limit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Limite de reacciones</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="wizard-instruction">
+                        <p>
+                            Potentor ofrece hasta 5 reacciones predefinidas,
+                            al usar más de 5 campos de respuesta deberás colocar tus
+                            propias imagenes de reacciones.
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
