@@ -20,24 +20,7 @@ function getScaleType() {
 }
 
 $('#scalesConfiguration').on('click', '.level-type', () => {
-    scaleType = getScaleType();
-    let answers = $('.answer-element').toArray();
-    const scale100 = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"].reverse();
-    const scaleUnit = ["1", "2", "3", "4", "5"].reverse();
-
-    if (scaleType == 'unit') {
-        answers.forEach( (answer, index) => {
-            $(answer).find('.tag').text(scaleUnit[index]);
-            
-        })
-    }
-
-    if (scaleType == '100') {
-        answers.forEach( (answer, index) => {
-            $(answer).find('.tag').text(scale100[index]);
-            
-        })
-    }
+    $('#scale-warning').modal({show: 'true'});
 });
 
 $('#scalesConfiguration').on('click', '.edit-icon', function () {
@@ -93,19 +76,7 @@ function removeAnswer(event) {
 
     
     syncBars('remove', null , answerNumber);
-    
-    // Checks if answers were added manually to remove first or last
-/*     if ( answerText != '-') {
-        
-        $('.answer-counter').first().remove();
-        $('.answer-bar').first().remove();
-        $('.answer-graphic-value').first().remove();
-    } 
-    else  {
-        $('.answer-counter').last().remove();
-        $('.answer-bar').last().remove();
-        $('.answer-graphic-value').last().remove();
-    } */
+
 
     $(event.currentTarget).parents('.answer-element').remove();
     totalAsnwers = getTotalAnswers();
@@ -209,8 +180,35 @@ function syncBars(type, newValue, answerNumber) {
         answerCounter.text(newValue);
     }
 
-}
+    if (type == 'style') {
+        const defaults = document.getElementById('defaults').content.cloneNode(true);
+        const area = document.getElementById('scale-editor-area');
+        area.innerHTML = '';
+        area.appendChild(defaults);
 
+        let scale = [];
+        let type = getScaleType();
+        let answers = $('.answer-element').toArray();
+        let counters = $('.answer-counter').toArray();
+
+
+        if (type == '100') {
+            scale = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"];
+        }
+        if (type == 'unit') {
+            scale = ["1", "2", "3", "4", "5"];
+        }
+
+        answers.forEach( (answer, index) => {
+            $(answer).find('.tag').text(scale.reverse()[index]);
+        })
+
+        counters.forEach( (counter, index) => {
+            counter.innerText =`${scale.reverse()[index]}`;
+        })
+    }
+
+}
 
 function getGraphicalType() {
     return  $('input[name="graphical-type"]:checked').val();

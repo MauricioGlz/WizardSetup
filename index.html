@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,11 @@
 
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/modal.css"> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
 
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
@@ -18,21 +21,26 @@
     <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css">
 
 
     <!-- Editor -->
     <!-- Include stylesheet -->
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
+
 <body>
 
     <div id="pages-container">
@@ -55,16 +63,16 @@
     </div>
 
 
-    <div id="controls-container"">
+    <div id="controls-container">
         <div id="progress-container">
-        <button type="button" id="prevBtn" class="simple-action-btn">
-            <img src="assets/images/back.png" alt="">
-        </button>
+            <button type="button" id="prevBtn" class="simple-action-btn">
+                <img src="assets/images/back.png" alt="">
+            </button>
 
-        <button type="button" id="nextBtn" class="simple-action-btn">
-            <img src="assets/images/next.png" alt="">
-        </button>
-    </div>
+            <button type="button" id="nextBtn" class="simple-action-btn">
+                <img src="assets/images/next.png" alt="">
+            </button>
+        </div>
     </div>
 
     <!-- Modal -->
@@ -97,7 +105,7 @@
                         <div class="col-md-6">
                             <div class="color-picker-container">
                                 <label for="color-picker">Color representativo</label>
-                                <input name="color-picker" id="color-picker" value='#276cb8'/>
+                                <input name="color-picker" id="color-picker" value='#276cb8' />
                             </div>
                         </div>
                         <div class="col-md-6 hidden" id="reaction-container">
@@ -119,7 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -146,10 +154,37 @@
                             propias imagenes de reacciones.
                         </p>
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change of scale warning -->
+    <div class="modal fade" id="scale-warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Cambio de escala</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="wizard-instruction">
+                        <p>
+                            Al cambiar tipo de escala, los cambios en el editor se
+                            perderán. ¿Deseas cambiar de tipo de escala?
+                        </p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary buttonHover" onclick="syncBars('style' , null, null)"
+                        data-dismiss="modal">Si, continuar</button>
+                    <button type="button" class="btn btn-default buttonHover" data-dismiss="modal">No, cancelar</button>
                 </div>
             </div>
         </div>
@@ -184,4 +219,4 @@
 <script src="js/scalesConfiguration.js" type="module"></script>
 <script src="js/modal.js" type="module"></script>
 
-</html> 
+</html>

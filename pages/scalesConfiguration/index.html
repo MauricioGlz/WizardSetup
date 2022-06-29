@@ -46,7 +46,7 @@
                         <div class="btn btn-primary buttonHover" onclick="addAnswer()">Agregar campo</div>
                     </div>
                 </div>
-                <div class="row full-height">
+                <div class="row full-height" id="scale-editor-area">
                     <div id="answers-editor" class="height-75">
 
                         <div class="form-element answer-element" data-number="5">
@@ -207,5 +207,139 @@
             </div>
         </div>
         <div class="placeholder"></div>
+    </div>
+</template>
+
+<template id="defaults">
+    <div id="answers-editor" class="height-75">
+
+        <div class="form-element answer-element" data-number="5">
+            <div class="element-name">Sobre pasa las expectativas</div>
+            <div class="element-type">
+                <div class="tag tag-green">5</div>
+            </div>
+            <div class="element-tool-box">
+                <div class="element-actions-container">
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                        <span><i class="fas fa-pen"></i></span>
+                    </div>
+                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                        <span><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="form-element answer-element" data-number="4">
+            <div class="element-name">Cumple pasa las expectativas</div>
+            <div class="element-type">
+                <div class="tag tag-blue">4</div>
+            </div>
+            <div class="element-tool-box">
+                <div class="element-actions-container">
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                        <span><i class="fas fa-pen"></i></span>
+                    </div>
+                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                        <span><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="form-element answer-element" data-number="3">
+            <div class="element-name">Cumple medianamente pasa las expectativas</div>
+            <div class="element-type">
+                <div class="tag tag-orange">3</div>
+            </div>
+            <div class="element-tool-box">
+                <div class="element-actions-container">
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                        <span><i class="fas fa-pen"></i></span>
+                    </div>
+                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                        <span><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="form-element answer-element" data-number="2">
+            <div class="element-name">En ocasiones cumple con las expectativas</div>
+            <div class="element-type">
+                <div class="tag tag-yellow">2</div>
+            </div>
+            <div class="element-tool-box">
+                <div class="element-actions-container">
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                        <span><i class="fas fa-pen"></i></span>
+                    </div>
+                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                        <span><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="form-element answer-element" data-number="1">
+            <div class="element-name">No cumple las expectativas</div>
+            <div class="element-type">
+                <div class="tag tag-red">1</div>
+            </div>
+            <div class="element-tool-box">
+                <div class="element-actions-container">
+                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                        <span><i class="fas fa-pen"></i></span>
+                    </div>
+                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                        <span><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+    </div>
+
+    <div id="answer-bar-preview">
+        <div class="answer-graphic-container">
+            <div class="answer-graphic-value" data-number="1">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x 1</span>
+            </div>
+            <div class="answer-graphic-value" data-number="2">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x 2</span>
+            </div>
+            <div class="answer-graphic-value" data-number="3">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x 3</span>
+            </div>
+            <div class="answer-graphic-value" data-number="4">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x 4</span>
+            </div>
+            <div class="answer-graphic-value" data-number="5">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x 5</span>
+            </div>
+        </div>
+        <div class="answers-counter-container">
+            <div class="answer-counter" data-number="1">1</div>
+            <div class="answer-counter" data-number="2">2</div>
+            <div class="answer-counter" data-number="3">3</div>
+            <div class="answer-counter" data-number="4">4</div>
+            <div class="answer-counter" data-number="5">5</div>
+        </div>
+        <div class="answer-bar-container">
+            <div class="answer-bar" style="background-color: #FD2C2C;" data-number="1"></div>
+            <div class="answer-bar" style="background-color: #EEE657;" data-number="2"></div>
+            <div class="answer-bar" style="background-color: #F37021;" data-number="3"></div>
+            <div class="answer-bar" style="background-color: #0089D0;" data-number="4"></div>
+            <div class="answer-bar" style="background-color: #29C88F;" data-number="5"></div>
+        </div>
     </div>
 </template>
