@@ -89,24 +89,25 @@ $('#color-picker').spectrum({
 function removeAnswer(event) {
 
     let deletetAnswer = event.currentTarget.closest('.answer-element');
-    let answerText = deletetAnswer.querySelector('.element-name').innerText
+    let answerNumber = $(deletetAnswer).data('number')
 
-    $(event.currentTarget).parents('.answer-element').remove();
+    
+    syncBars('remove', null , answerNumber);
     
     // Checks if answers were added manually to remove first or last
-    if ( answerText != '-') {
+/*     if ( answerText != '-') {
         
         $('.answer-counter').first().remove();
         $('.answer-bar').first().remove();
         $('.answer-graphic-value').first().remove();
-
     } 
     else  {
         $('.answer-counter').last().remove();
         $('.answer-bar').last().remove();
         $('.answer-graphic-value').last().remove();
-    }
+    } */
 
+    $(event.currentTarget).parents('.answer-element').remove();
     totalAsnwers = getTotalAnswers();
 
     if (totalAsnwers <= 5 ) {
@@ -118,8 +119,6 @@ function removeAnswer(event) {
         $('.like-dislike').removeClass('hidden');
         $('.emoji-reaction').addClass('hidden');
     }
-
-    syncBars('remove');
 
     if (getGraphicalType() == 'reaction') {
         if (getTotalAnswers() >= 2) {
@@ -165,25 +164,37 @@ function addAnswer() {
 function syncBars(type, newValue, answerNumber) {
 
     if (type == 'add') {
-        $('.answers-counter-container').append(`<div class="answer-counter" data-number="${getTotalAnswers()}"> - </div>`);
+        $('.answers-counter-container').append(`
+            <div class="answer-counter" data-number="${getTotalAnswers()}"> - </div>`
+        );
+
         $('.answer-graphic-container').append(`
-            <div class="answer-graphic-value">
+            <div class="answer-graphic-value" data-number="${getTotalAnswers()}">
                 <img src="../../assets/images/single_star.png" alt="">
                 <span>x ${getTotalAnswers()}</span>
-            </div>`);
-        $('.answer-bar-container').append('<div class="answer-bar" style="background-color: #FD2C2C;"></div>');
+            </div>`
+        );
+
+        $('.answer-bar-container').append(`
+            <div class="answer-bar" style="background-color: #FD2C2C;" data-number="${getTotalAnswers()}"></div>`
+        );
     }
 
     if (type == 'remove') {
-        let firstBar = document.getElementsByClassName('answer-graphic-value')[0];
-        let barValue = firstBar.querySelector('span').innerText.split('x')[1];
+        let answerCounter = $(`.answer-counter[data-number="${answerNumber}"]`);
+        let answerBar = $(`.answer-bar[data-number="${answerNumber}"]`);
+        let answerValue = $(`.answer-graphic-value[data-number="${answerNumber}"]`);
 
-        if (barValue > 1) {
-            $('.answer-graphic-value span').toArray().forEach( span => {
-                let graphicValue = parseInt($(span).text().split('x')[1]);
-                $(span).text(`x ${graphicValue - 1}`)
-            } )
-        }
+        answerCounter.remove();
+        answerBar.remove();
+        answerValue.remove();
+
+        let firstBar = document.getElementsByClassName('answer-graphic-value')[0];
+        
+        $('.answer-graphic-value span').toArray().forEach( (span, index) => {
+            $(span).text(`x ${index + 1}`)
+        } )
+
     }
 
     if (type == 'update') {
