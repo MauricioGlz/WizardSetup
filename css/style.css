@@ -216,10 +216,6 @@ input.invalid {
     width: 64%;
 }
 
-
-
-
-
 .potentor-btn {
     background-color: var(--primary-color);
     border-radius: 4px;
@@ -233,15 +229,6 @@ input.invalid {
     transition: all .3s;
     user-select: none;
     border: none;
-}
-
-.default-btn {
-    background-color: #fff;
-    border: 1px solid #7D7D7D;
-}
-
-.delete-btn {
-    background-color: #FD2C2C;
 }
 
 /* The switch - the box around the slider */
@@ -355,48 +342,6 @@ input.invalid {
 
 .scale-options label {
     cursor: pointer;
-}
-
-#answer-editor {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-#answer-bar-preview {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-
-.answers-counter-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.answer-counter {
-    width: 100%;
-    text-align: center;
-}
-
-.answer-bar-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.answer-bar {
-    width: 100%;
-    height: 20px;
-}
-
-.answer-bar:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.answer-bar:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 #personal-selection {
@@ -1099,6 +1044,10 @@ input:checked+.slider:before {
     height: 50%;
 }
 
+.height-75 {
+    height: 75%;
+}
+
 .height-80 {
     height: 80%;
 }
@@ -1232,14 +1181,16 @@ input:checked+.slider:before {
 
 
 .form-element {
-    background-color: #F1F1F1;
+    background-color: transparent;
     display: inline-flex;
     align-items: center;
     position: relative;
     min-height: 44px;
     width: 99%;
     margin-bottom: 15px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-bottom: 1px solid #d2d2d2;
+    border-top: 1px solid #d2d2d2;
 }
 
 .element-name {
@@ -1247,6 +1198,7 @@ input:checked+.slider:before {
     width: 90%;
     font-size: 14px;
     margin: auto 0 auto 15px;
+    user-select: none;
 }
 
 .element-type {
@@ -1334,14 +1286,14 @@ input:checked+.slider:before {
      */
 }
 
-#scalesConfiguration {
+#scalesConfig {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
     margin-bottom: auto;
     position: relative;
-    height: 95%;
+    height: 90%;
 }
 
 .graphical-type-selector-container {
@@ -1432,8 +1384,8 @@ input:checked+.slider:before {
 }
 
 .action-btn {
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     margin: auto 5px;
 
     border-radius: 5px;
@@ -1442,6 +1394,16 @@ input:checked+.slider:before {
     align-items: center;
     cursor: pointer;
 }
+
+.default-btn {
+    background-color: #eaeaea;
+    border-radius: 26px;
+}
+
+.delete-btn {
+    background-color: #FD2C2C;
+}
+
 
 .answer-range-container {
     display: flex;
@@ -1510,4 +1472,61 @@ input:checked+.slider:before {
 
 #dislike-select {
     background-image: url('../assets/images/reaccion/thumbDown.png');
+}
+
+.element-actions-container .fas {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.element-actions-container .default-btn:hover i{
+    color: var(--primary-color);
+}
+
+.answer-counter, .answer-graphic-value {
+    width: 100%;
+    text-align: center;
+}
+
+.answer-graphic-value span {
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+
+#answer-editor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#answer-bar-preview {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.answers-counter-container, .answer-graphic-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.answer-bar-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.answer-bar {
+    width: 100%;
+    height: 20px;
+}
+
+.answer-bar:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.answer-bar:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

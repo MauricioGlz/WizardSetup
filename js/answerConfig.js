@@ -9,51 +9,30 @@ var answerType;
 var answerConfig = [];
 let totalAsnwers = 0;
 let reactionWaring = false;
+let scaleType = 'unit';
 
 function getTotalAnswers() {
     return $('.answer-element').length;
 }
 
-$('#scalesConfiguration').on('change', 'input[name="answer-type"', (event) => {
+function getScaleType() {
+    return $('.level-type.active').data('value');
+}
 
-    let selectedVal = $(event.currentTarget).val()
-
-    if ($(event.currentTarget).is(':checked') && selectedVal == 'stars') {
-        $('#text-answer-configurator').hide();
-        $('#answer-preview-img').show();
-        $('#answer-preview-img').css('background-image', 'url("assets/images/respuesta_estrella.png")');
-
-    }
-
-    if ($(event.currentTarget).is(':checked') && selectedVal == 'number') {
-        $('#text-answer-configurator').hide();
-        $('#answer-preview-img').show();
-        $('#answer-preview-img').css('background-image', 'url("assets/images/respuesta_numero.png")');
-    }
-    
-    if ($(event.currentTarget).is(':checked') && selectedVal == 'text') {
-        $('#answer-preview-img').hide();
-        $('#text-answer-configurator').show();
-    }
-
-    answerType = selectedVal;
-
-});
-
-$('#scalesConfiguration').on('change', 'input[name="scale-type"]', (event) => {
-    let scaleType = $(event.currentTarget).val();
+$('#scalesConfiguration').on('click', '.level-type', () => {
+    scaleType = getScaleType();
     let answers = $('.answer-element').toArray();
     const scale100 = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"].reverse();
     const scaleUnit = ["1", "2", "3", "4", "5"].reverse();
 
-    if ($(event.currentTarget).is(':checked') && scaleType == 'unit') {
+    if (scaleType == 'unit') {
         answers.forEach( (answer, index) => {
             $(answer).find('.tag').text(scaleUnit[index]);
             
         })
     }
 
-    if ($(event.currentTarget).is(':checked') && scaleType == '100') {
+    if (scaleType == '100') {
         answers.forEach( (answer, index) => {
             $(answer).find('.tag').text(scale100[index]);
             
@@ -64,35 +43,36 @@ $('#scalesConfiguration').on('change', 'input[name="scale-type"]', (event) => {
 $('#scalesConfiguration').on('click', '.edit-icon', function () {
 
     let graphicalType = getGraphicalType();
+    answerToEdit = $(this).parents('.answer-element');
+    let currentAnswerColor = answerToEdit.find('.tag').css('background-color');
 
-    if (graphicalType == 'reaction') $('#reaction-container').removeClass('hidden');
+    if (graphicalType == 'reaction') {
+        $('#reaction-container').removeClass('hidden');
+        if (getTotalAnswers() >= 6) {
+            $('#reaction-upload').removeClass('hidden');
+            $('#reaction-container').addClass('hidden');
+        }
+    }
     else $('#reaction-container').addClass('hidden');
 
     $('#answer-text').val('');
-    answerToEdit = $(this).parents('.answer-element');
-    let totalAnswers = $('.answer-element').length;
-    let currentAnswerColor = answerToEdit.find('.tag').css('background-color');
 
+    if (scaleType == '100' ) {
+        $('.unit-range').addClass('hidden');
+        $('.100-range').removeClass('hidden');
 
-    if ($('#unit-100').is(':checked') ) {
         $('#min-range').prop('disabled', false);
 
         $('#max-range').prop('disabled', false);
         $('#max-range').prop('max', '100');
     }
     else {
-        if (totalAnswers >= 5) {
-            $('#max-range').prop('disabled', true);
-        }
-        else {
-            $('#max-range').prop('disabled', true);
+        $('.unit-range').removeClass('hidden');
+        $('.100-range').addClass('hidden');
 
-            $('#min-range').prop('max', '5');
-            $('#min-range').prop('disabled', false);
-        }
+        $('#max-range').prop('disabled', true);
+        $('#min-range').prop('disabled', false);
     }
-
-    let currentAnswerText = $(this).parents('.answer-element').find('.element-name').text();
   
     $('#color-picker').spectrum('set', currentAnswerColor);
 
@@ -108,36 +88,50 @@ $('#color-picker').spectrum({
 
 function removeAnswer(event) {
 
-    let totalBarsArr = $('.answer-counter').toArray();
+    let deletetAnswer = event.currentTarget.closest('.answer-element');
+    let answerText = deletetAnswer.querySelector('.element-name').innerText
 
     $(event.currentTarget).parents('.answer-element').remove();
     
     // Checks if answers were added manually to remove first or last
-    if ($.trim($('.answer-counter').first().text())  != '-') {
+    if ( answerText != '-') {
         
-        $('.answer-counter').last().remove();
-        $('.answer-bar').last().remove();
-
-        if ( parseInt( $('.answer-counter').first().text() ) != 3 && parseInt( $('.answer-counter').first().text() ) != 4) {
-            totalBarsArr.forEach((element, index) => {
-                let currentVal = parseInt($(element).text());
-                $(element).text(currentVal + 1);
-            });
-        }
-    } 
-    else  {
         $('.answer-counter').first().remove();
         $('.answer-bar').first().remove();
+        $('.answer-graphic-value').first().remove();
+
+    } 
+    else  {
+        $('.answer-counter').last().remove();
+        $('.answer-bar').last().remove();
+        $('.answer-graphic-value').last().remove();
     }
 
     totalAsnwers = getTotalAnswers();
-    if (totalAsnwers <= 5 ) reactionWaring = false;
+
+    if (totalAsnwers <= 5 ) {
+        reactionWaring = false;
+        $('#reaction-upload').addClass('hidden');
+        $('#reaction-container').removeClass('hidden');
+    }
     if (totalAsnwers <= 2) {
         $('.like-dislike').removeClass('hidden');
         $('.emoji-reaction').addClass('hidden');
     }
 
-    syncColors();
+    syncBars('remove');
+
+    if (getGraphicalType() == 'reaction') {
+        if (getTotalAnswers() >= 2) {
+            $('.like-dislike').addClass('hidden');
+            $('.emoji-reaction').removeClass('hidden');
+        }
+        if (getTotalAnswers() >= 6 && reactionWaring == false) {
+            $('#reaction-limit').modal({show: 'true'});
+            reactionWaring = true;
+        }
+        
+    }
 }
 
 
@@ -146,51 +140,64 @@ function removeAnswer(event) {
  * */
 function addAnswer() {
 
-    $('#answers-editor').append(`
-        <div class="form-element answer-element">
-            <div class="element-name">No cumple las expectativas</div>
+    $('#answers-editor').prepend(`
+        <div class="form-element answer-element" data-number="${getTotalAnswers() + 1}">
+            <div class="element-name">-</div>
             <div class="element-type"><div class="tag tag-red">-</div></div>
             <div class="element-tool-box">
-                <div class="element-actions-container">
-                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
-                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
-                    </div>
-                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
-                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
-                    </div>
+            <div class="element-actions-container">
+                <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal" >
+                    <span><i class="fas fa-pen"></i></span>
                 </div>
+                <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                    <span><i class="fas fa-trash"></i></span>
+                </div>
+            </div>
             </div>
             <div class="placeholder"></div>
         </div>
     `)
 
-    $('.answers-counter-container').prepend('<div class="answer-counter"> - </div>');
-    $('.answer-bar-container').prepend(' <div class="answer-bar" style="background-color: #FD2C2C;"></div>');
-
-    if (getGraphicalType() == 'reaction') {
-        let totalAnswers = getTotalAnswers();
-        if (totalAnswers >= 2) {
-            $('.like-dislike').addClass('hidden');
-            $('.emoji-reaction').removeClass('hidden');
-        }
-        if (totalAnswers >= 6 && reactionWaring == false) {
-            $('#reaction-limit').modal({show: 'true'});
-            reactionWaring = true;
-        }
-        
-    }
-
+    syncBars('add');
     
 }
 
-function syncColors() {
-    let answersElements = $('.answer-element').toArray().reverse();
-    let answerBars = $('.answer-bar').toArray();
+function syncBars(type, newValue, answerNumber) {
 
-    answersElements.forEach( (element, index) => {
-        let bgc = $(element).find('.tag').css('background-color');
-        $(answerBars[index]).css('background-color', bgc);
-    })
+    if (type == 'add') {
+        $('.answers-counter-container').append(`<div class="answer-counter" data-number="${getTotalAnswers()}"> - </div>`);
+        $('.answer-graphic-container').append(`
+            <div class="answer-graphic-value">
+                <img src="../../assets/images/single_star.png" alt="">
+                <span>x ${getTotalAnswers()}</span>
+            </div>`);
+        $('.answer-bar-container').append('<div class="answer-bar" style="background-color: #FD2C2C;"></div>');
+    }
+
+    if (type == 'remove') {
+        let firstBar = document.getElementsByClassName('answer-graphic-value')[0];
+        let barValue = firstBar.querySelector('span').innerText.split('x')[1];
+
+        if (barValue > 1) {
+            $('.answer-graphic-value span').toArray().forEach( span => {
+                let graphicValue = parseInt($(span).text().split('x')[1]);
+                $(span).text(`x ${graphicValue - 1}`)
+            } )
+        }
+    }
+
+    if (type == 'update') {
+        let answersElements = $('.answer-element').toArray().reverse();
+        let answerBars = $('.answer-bar').toArray();
+        let answerCounter = $(`.answer-counter[data-number="${answerNumber}"]`)
+    
+        answersElements.forEach( (element, index) => {
+            let bgc = $(element).find('.tag').css('background-color');
+            $(answerBars[index]).css('background-color', bgc);
+        })
+        answerCounter.text(newValue);
+    }
+
 }
 
 
@@ -201,16 +208,18 @@ function getGraphicalType() {
 function updateAnswer() {
     let newColor = $("#color-picker").val();
     let newAnswerText = $('#answer-text').val();
+    let newAnswerValue = $('#answer-value').val();
     let newMinRange = $('#min-range').val();
     let newMaxRange = $('#max-range').val();
     let isMaxRangeDisabled = $('#max-range').prop('disabled');
     let answerTag = answerToEdit.find('.tag');
+    let answerNumber = $(answerToEdit).data('number');
 
     answerTag.css('background-color', newColor);
 
     if (newAnswerText != '') answerToEdit.find('.element-name').text(newAnswerText);
     
-    if (isMaxRangeDisabled) answerToEdit.find('.tag').text(newMinRange);
+    if (isMaxRangeDisabled) answerToEdit.find('.tag').text(newAnswerValue);
     
     if (isMaxRangeDisabled == false) {
 
@@ -221,4 +230,6 @@ function updateAnswer() {
             answerToEdit.find('.tag').text(newRange);
         }
     }
+
+    syncBars('update', newAnswerValue, answerNumber)
 }

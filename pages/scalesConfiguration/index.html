@@ -1,6 +1,6 @@
 <div class="tab">
     <div class="tab-title">Configura tu escala</div>
-    <div class="tab-container" id="scalesConfiguration">
+    <div class="tab-container" id="scalesConfig">
         <div class="row full-height">
             <div class="col-md-3 full-height">
                 <div class="col">
@@ -39,98 +39,141 @@
                 <div class="row">
                     <div class="col-md-9 level-selector-container">
                         <div class="wizard-instruction">Elige el tipo<br>de nivel</div>
-                        <div class="option-btn active">Valor particular</div>
-                        <div class="option-btn">Valor rango</div>
+                        <div class="option-btn level-type active" data-value="unit">Valor particular</div>
+                        <div class="option-btn level-type" data-value="100">Valor rango</div>
                     </div>
                     <div class="col-md-3">
-                        <div class="btn btn-primary buttonHover" onclick="addAnswer()">Agregar respuesta</div>
+                        <div class="btn btn-primary buttonHover" onclick="addAnswer()">Agregar campo</div>
                     </div>
                 </div>
                 <div class="row full-height">
-                    <div id="answers-editor" class="height-80">
+                    <div id="answers-editor" class="height-75">
 
-                        <div class="form-element answer-element">
+                        <div class="form-element answer-element" data-number="5">
                             <div class="element-name">Sobre pasa las expectativas</div>
-                            <div class="element-type"><div class="tag tag-green">5</div></div>
+                            <div class="element-type">
+                                <div class="tag tag-green">5</div>
+                            </div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
-                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal"
+                                        data-target="#answersModal">
+                                        <span><i class="fas fa-pen"></i></span>
+                                    </div>
+                                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                                        <span><i class="fas fa-trash"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="placeholder"></div>    
+                            <div class="placeholder"></div>
                         </div>
 
-                        <div class="form-element answer-element">
+                        <div class="form-element answer-element" data-number="4">
                             <div class="element-name">Cumple pasa las expectativas</div>
-                            <div class="element-type"><div class="tag tag-blue">4</div></div>
+                            <div class="element-type">
+                                <div class="tag tag-blue">4</div>
+                            </div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" >
-                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal"
+                                        data-target="#answersModal">
+                                        <span><i class="fas fa-pen"></i></span>
+                                    </div>
+                                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                                        <span><i class="fas fa-trash"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="placeholder"></div>    
+                            <div class="placeholder"></div>
                         </div>
 
-                        <div class="form-element answer-element">
+                        <div class="form-element answer-element" data-number="3">
                             <div class="element-name">Cumple medianamente pasa las expectativas</div>
-                            <div class="element-type"><div class="tag tag-orange">3</div></div>
+                            <div class="element-type">
+                                <div class="tag tag-orange">3</div>
+                            </div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" >
-                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal"
+                                        data-target="#answersModal">
+                                        <span><i class="fas fa-pen"></i></span>
                                     </div>
-                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
-                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                                        <span><i class="fas fa-trash"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="placeholder"></div>    
+                            <div class="placeholder"></div>
                         </div>
 
-                        <div class="form-element answer-element">
+                        <div class="form-element answer-element" data-number="2">
                             <div class="element-name">En ocasiones cumple con las expectativas</div>
-                            <div class="element-type"><div class="tag tag-yellow">2</div></div>
+                            <div class="element-type">
+                                <div class="tag tag-yellow">2</div>
+                            </div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" >
-                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal"
+                                        data-target="#answersModal">
+                                        <span><i class="fas fa-pen"></i></span>
                                     </div>
-                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
-                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                                        <span><i class="fas fa-trash"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="placeholder"></div>    
+                            <div class="placeholder"></div>
                         </div>
 
-                        <div class="form-element answer-element">
+                        <div class="form-element answer-element" data-number="1">
                             <div class="element-name">No cumple las expectativas</div>
-                            <div class="element-type"><div class="tag tag-red">1</div></div>
+                            <div class="element-type">
+                                <div class="tag tag-red">1</div>
+                            </div>
                             <div class="element-tool-box">
                                 <div class="element-actions-container">
-                                    <div class="action-btn default-btn edit-icon" >
-                                        <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                                    <div class="action-btn default-btn edit-icon" data-toggle="modal"
+                                        data-target="#answersModal">
+                                        <span><i class="fas fa-pen"></i></span>
                                     </div>
-                                    <div class="action-btn delete-btn" onclick="removeAnswer(event)">
-                                        <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                                    <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                                        <span><i class="fas fa-trash"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="placeholder"></div>    
+                            <div class="placeholder"></div>
                         </div>
                     </div>
 
                     <div id="answer-bar-preview">
+                        <div class="answer-graphic-container">
+                            <div class="answer-graphic-value">
+                                <img src="../../assets/images/single_star.png" alt="">
+                                <span>x 1</span>
+                            </div>
+                            <div class="answer-graphic-value">
+                                <img src="../../assets/images/single_star.png" alt="">
+                                <span>x 2</span>
+                            </div>
+                            <div class="answer-graphic-value">
+                                <img src="../../assets/images/single_star.png" alt="">
+                                <span>x 3</span>
+                            </div>
+                            <div class="answer-graphic-value">
+                                <img src="../../assets/images/single_star.png" alt="">
+                                <span>x 4</span>
+                            </div>
+                            <div class="answer-graphic-value">
+                                <img src="../../assets/images/single_star.png" alt="">
+                                <span>x 5</span>
+                            </div>
+                        </div>
                         <div class="answers-counter-container">
-                            <div class="answer-counter">1</div>
-                            <div class="answer-counter">2</div>
-                            <div class="answer-counter">3</div>
-                            <div class="answer-counter">4</div>
-                            <div class="answer-counter">5</div>
+                            <div class="answer-counter" data-number="1">1</div>
+                            <div class="answer-counter" data-number="2">2</div>
+                            <div class="answer-counter" data-number="3">3</div>
+                            <div class="answer-counter" data-number="4">4</div>
+                            <div class="answer-counter" data-number="5">5</div>
                         </div>
                         <div class="answer-bar-container">
                             <div class="answer-bar" style="background-color: #FD2C2C;"></div>
@@ -150,17 +193,19 @@
 <template id="asnwer-bar-template">
     <div class="form-element answer-element">
         <div class="element-name"></div>
-        <div class="element-type"><div class="tag tag-red"></div></div>
+        <div class="element-type">
+            <div class="tag tag-red"></div>
+        </div>
         <div class="element-tool-box">
             <div class="element-actions-container">
-                <div class="action-btn default-btn edit-icon" >
-                    <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="font-size: 19px;"></span>
+                <div class="action-btn default-btn edit-icon" data-toggle="modal" data-target="#answersModal">
+                    <span><i class="fas fa-pen"></i></span>
                 </div>
-                <div class="action-btn delete-btn" onclick="removeAnswer(event)">
-                    <span class="iconify" data-inline="false" data-icon="ic:baseline-delete" style="color: #ffffff; font-size: 19.636363983154297px;"></span>
+                <div class="action-btn default-btn" onclick="removeAnswer(event)">
+                    <span><i class="fas fa-trash"></i></span>
                 </div>
             </div>
         </div>
-        <div class="placeholder"></div>    
+        <div class="placeholder"></div>
     </div>
 </template>
