@@ -1,12 +1,12 @@
 /*
 * Note: 
-* This is legacy code, it uses jQuery event delegations, inner HTML code
-* needs to be refactored to be modular and use template tag.
+* This is legacy code, most of it uses jQuery event delegations, 
+* inner HTML code needs to be refactored to be modular and use template tag.
 */
 
-var answerToEdit;
-var answerType;
-var answerConfig = [];
+let answerToEdit;
+let answerType;
+let answerConfig = [];
 let totalAsnwers = 0;
 let reactionWaring = false;
 let scaleType = 'unit';
@@ -132,22 +132,48 @@ function addAnswer() {
     
 }
 
+
+/** 
+ * 
+*/
 function syncBars(type, newValue, answerNumber) {
 
     if (type == 'add') {
+
+        totalAsnwers = getTotalAnswers();
+        let graphicalType = getGraphicalType();
+
         $('.answers-counter-container').append(`
-            <div class="answer-counter" data-number="${getTotalAnswers()}"> - </div>`
+            <div class="answer-counter" data-number="${totalAsnwers}"> - </div>`
         );
 
-        $('.answer-graphic-container').append(`
-            <div class="answer-graphic-value" data-number="${getTotalAnswers()}">
-                <img src="../../assets/images/single_star.png" alt="">
-                <span>x ${getTotalAnswers()}</span>
+        if (graphicalType == 'stars') {
+            $('.answer-graphic-container').append(`
+                <div class="answer-graphic-value" data-number="${totalAsnwers}">
+                    <img src="../../assets/images/single_star.png" alt="">
+                    <span>x ${totalAsnwers}</span>
+                </div>`
+            );
+        }
+        else if (graphicalType == 'numbers') {
+            $('.answer-graphic-container').append(`
+                <div class="answer-graphic-value" data-number="${totalAsnwers}">
+                    <span>o ${totalAsnwers}</span>
+                </div>`
+            );
+        }
+        else if (graphicalType == 'reaction') {
+            $('.answer-graphic-container').append(`
+            <div class="answer-graphic-value" data-number="${totalAsnwers}">
+                <img src="../../assets/images/reaccion/neutral.png" alt="">
             </div>`
-        );
+            );
+
+            if (getTotalAnswers() == 5) $('#add-answer-btn').attr('disabled', true)
+        }
 
         $('.answer-bar-container').append(`
-            <div class="answer-bar" style="background-color: #FD2C2C;" data-number="${getTotalAnswers()}"></div>`
+            <div class="answer-bar" style="background-color: #FD2C2C;" data-number="${totalAsnwers}"></div>`
         );
     }
 
@@ -159,13 +185,14 @@ function syncBars(type, newValue, answerNumber) {
         answerCounter.remove();
         answerBar.remove();
         answerValue.remove();
-
-        let firstBar = document.getElementsByClassName('answer-graphic-value')[0];
         
         $('.answer-graphic-value span').toArray().forEach( (span, index) => {
             $(span).text(`x ${index + 1}`)
         } )
+        if (getGraphicalType() == 'reaction') {
 
+            if (getTotalAnswers() - 1 <= 4) $('#add-answer-btn').attr('disabled', false)
+        }
     }
 
     if (type == 'update') {

@@ -24,9 +24,34 @@ function allowGraphicalSelector() {
 	selectors.forEach( selector => {
 		selector.addEventListener('click', event => {
 			let graphical = event.currentTarget;
-			let input = graphical.parentElement.querySelector('input')
+			let input = graphical.parentElement.querySelector('input');
 
 			input.checked = true;
+
+			// Functions used here are defined on asnwerConfig.js file
+			if (input.value == 'reaction') {
+
+				document.getElementById('stars-icons').classList.add('hidden');
+				document.getElementById('number-icons').classList.add('hidden');
+				document.getElementById('reaction-icons').classList.remove('hidden');
+
+				if (getTotalAnswers() == 5) $('#add-answer-btn').attr('disabled', true)
+				else if (getTotalAnswers() <= 4) $('#add-answer-btn').attr('disabled', false)
+			}
+			else if (input.value == 'num') {
+				document.getElementById('stars-icons').classList.add('hidden');
+				document.getElementById('number-icons').classList.remove('hidden');
+				document.getElementById('reaction-icons').classList.add('hidden');
+
+				$('#add-answer-btn').attr('disabled', false)
+			}
+			else if (input.value == 'stars') {
+				document.getElementById('stars-icons').classList.remove('hidden');
+				document.getElementById('number-icons').classList.add('hidden');
+				document.getElementById('reaction-icons').classList.add('hidden');
+
+				$('#add-answer-btn').attr('disabled', false)
+			}
 		})
 	})
 }

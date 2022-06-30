@@ -1530,3 +1530,8 @@ input:checked+.slider:before {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+
+#reaction-icons img {
+    height: 30px;
+}
