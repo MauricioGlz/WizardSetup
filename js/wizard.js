@@ -4,9 +4,10 @@ import { storeOption, addEventsToCards, allowGraphicalSelector, allowOptionBtns 
 import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
 import { addReminderEvents, storeReminders } from "./reminders.js";
 import { allowModalsEvents } from "./modal.js";
+import { degreeEvaluation } from "./degreeEvaluation.js"
 
 
-let currentTab = 9; // Current tab is set to be the first tab (0)
+let currentTab = 0; // Current tab is set to be the first tab (0)
 let lastStep = 0;
 
 async function showTab(n) {
@@ -111,7 +112,8 @@ function loadPages() {
         'principals',
         'evaluationType',
         'scalesConfiguration',
-        /* 
+        'degreeEvaluation'
+        /*
         'openQuestions',
         'newtworkCreation',
         'masiveNetwork',
@@ -156,5 +158,6 @@ $(document).ready(async function () {
     allowGraphicalSelector();
     allowOptionBtns();
     addReminderEvents();
+    degreeEvaluation();
 
 })

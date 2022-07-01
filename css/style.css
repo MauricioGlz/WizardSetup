@@ -153,7 +153,7 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .warning-action {
@@ -317,7 +317,7 @@ input.invalid {
 
 #answer-preview-img {
     display: block;
-    
+
     background-image: url('assets/images/respuesta_estrella.png');
     background-position: center;
 
@@ -329,8 +329,8 @@ input.invalid {
 #text-answer-configurator {
     display: none;
     width: 97%;
-    height: 100%;  
-    position: relative;  
+    height: 100%;
+    position: relative;
 }
 
 .scale-options {
@@ -348,7 +348,8 @@ input.invalid {
     height: 47vh;
 }
 
-.personal-selection-card, .eveluators-selection-card {
+.personal-selection-card,
+.eveluators-selection-card {
     width: 197px;
     height: 267px;
     background-color: #fff;
@@ -363,7 +364,8 @@ input.invalid {
     overflow-y: auto;
 }
 
-.personal-selection-card .element-title, .eveluators-selection-card .element-title {
+.personal-selection-card .element-title,
+.eveluators-selection-card .element-title {
     cursor: pointer;
 }
 
@@ -405,7 +407,7 @@ input.invalid {
 }
 
 
-.personal-container ul li{
+.personal-container ul li {
     list-style-type: circle;
     color: #000;
     cursor: pointer;
@@ -413,7 +415,8 @@ input.invalid {
     margin-bottom: 5px;
 }
 
-.element-title.active, .personal-container ul li.active {
+.element-title.active,
+.personal-container ul li.active {
     color: var(--primary-color);
 }
 
@@ -430,7 +433,7 @@ input.invalid {
 .csv-overlay {
     height: 51vh;
     width: 95%;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     position: absolute;
     display: none;
     border-radius: 10px;
@@ -584,7 +587,9 @@ input.invalid {
     flex-direction: column;
 }
 
-.evaluators-space-between { justify-content: space-between; }
+.evaluators-space-between {
+    justify-content: space-between;
+}
 
 .evaluators-flex-grow-1 {
     display: flex;
@@ -596,10 +601,17 @@ input.invalid {
     align-items: center;
 }
 
-.evaluators-flex-gap-1 { gap: 1.5em; }
-.evaluators-flex-gap-half { gap: .5em; }
+.evaluators-flex-gap-1 {
+    gap: 1.5em;
+}
 
-.evaluators-flex-align-start { align-items: flex-start; }
+.evaluators-flex-gap-half {
+    gap: .5em;
+}
+
+.evaluators-flex-align-start {
+    align-items: flex-start;
+}
 
 .evaluators-column-text-input {
     font-size: .85em;
@@ -609,7 +621,9 @@ input.invalid {
     max-height: 25px;
 }
 
-.evaluators-full-height { height: 100%; }
+.evaluators-full-height {
+    height: 100%;
+}
 
 .evaluators-employee-list {
     flex-direction: column;
@@ -626,12 +640,21 @@ input.invalid {
     overflow-x: hidden;
 }
 
-.evaluators-employee-list > li { cursor: pointer; }
+.evaluators-employee-list>li {
+    cursor: pointer;
+}
 
-.evaluators-small-label { font-size: .8em; }
+.evaluators-small-label {
+    font-size: .8em;
+}
 
-.evaluators-select-count { width: 6em; }
-.evaluators-large-select { width: 15em; }
+.evaluators-select-count {
+    width: 6em;
+}
+
+.evaluators-large-select {
+    width: 15em;
+}
 
 .evaluators-confirm-btn {
     font-size: .85em;
@@ -643,10 +666,15 @@ input.invalid {
     margin-bottom: -1em;
 }
 
-.evaluators-employee-card { font-size: .85em; }
-.evaluators-employee-card > p { margin-bottom: -.5em; }
+.evaluators-employee-card {
+    font-size: .85em;
+}
 
-.evaluators-employee-card > ul {
+.evaluators-employee-card>p {
+    margin-bottom: -.5em;
+}
+
+.evaluators-employee-card>ul {
     display: flex;
     flex-direction: column;
     padding: .8em 1em;
@@ -658,9 +686,9 @@ input.invalid {
 }
 
 .evaluators-side-panel {
-    flex: .25; 
-    min-height: 0px; 
-    overflow-y: auto; 
+    flex: .25;
+    min-height: 0px;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -757,6 +785,7 @@ input.invalid {
     align-items: center;
     font-family: 'Poppins';
 }
+
 .option-card {
     width: 376px;
     height: 113px;
@@ -819,7 +848,7 @@ input.invalid {
     margin-bottom: auto;
     position: relative;
     height: 90%;
-    
+
 }
 
 #welcome-text-editor {
@@ -1274,7 +1303,7 @@ input:checked+.slider:before {
     margin-left: auto;
     margin-right: 10px;
     background-color: var(--primary-color) !important;
-/*     display: inline-block;
+    /*     display: inline-block;
     min-width: 16px;
     padding: 7px 12px;
     border-radius: 50%;
@@ -1340,6 +1369,7 @@ input:checked+.slider:before {
     margin-top: 20px;
     overflow-y: auto;
 }
+
 /* Evaluation configuration  */
 .element-name {
     font-family: 'Poppins';
@@ -1479,11 +1509,12 @@ input:checked+.slider:before {
     font-size: 1.2rem;
 }
 
-.element-actions-container .default-btn:hover i{
+.element-actions-container .default-btn:hover i {
     color: var(--primary-color);
 }
 
-.answer-counter, .answer-graphic-value {
+.answer-counter,
+.answer-graphic-value {
     width: 100%;
     text-align: center;
 }
@@ -1506,7 +1537,8 @@ input:checked+.slider:before {
     bottom: 0;
 }
 
-.answers-counter-container, .answer-graphic-container {
+.answers-counter-container,
+.answer-graphic-container {
     display: flex;
     justify-content: space-evenly;
 }
@@ -1529,4 +1561,38 @@ input:checked+.slider:before {
 .answer-bar:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+/* Degree Evaluation */
+.degree-container {
+    height: 100%;
+}
+
+.degree-options {
+    display: flex;
+    justify-content: center;
+}
+
+.degree-btn {
+    width: 100%;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #554AD4;
+}
+
+.degree {
+    height: 80%;
+}
+
+.degree-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.degree-form {
+    margin: 10px;
+    width: 200px;
 }
