@@ -14,21 +14,21 @@
                         <div class="form-group">
                             <input type="radio" name="graphical-type" id="stars-type" value="stars" checked>
                             <label for="stars-type">Estrellas</label>
-                            <div class="graphical-banner option-btn active">
+                            <div class="graphical-banner option-btn active" id="stars-banner">
                                 <img src="../../assets/images/selector_estrella.png" alt="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="radio" name="graphical-type" id="stars-type" value="num">
-                            <label for="stars-type">Numeración</label>
+                            <input type="radio" name="graphical-type" id="number-type" value="num">
+                            <label for="number-type">Numeración</label>
                             <div class="graphical-banner option-btn">
                                 <img src="../../assets/images/selector_numero.png" alt="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="radio" name="graphical-type" id="stars-type" value="reaction">
-                            <label for="stars-type">Pulso</label>
-                            <div class="graphical-banner option-btn">
+                            <input type="radio" name="graphical-type" id="reaction-type" value="reaction">
+                            <label for="reaction-type">Pulso</label>
+                            <div class="graphical-banner option-btn" id="reaction-banner">
                                 <img src="../../assets/images/selector_reaccion.png" alt="">
                             </div>
                         </div>
@@ -341,7 +341,7 @@
     </div>
 
     <div id="answer-bar-preview">
-        <div class="answer-graphic-container">
+        <div class="answer-graphic-container" id="stars-icons">
             <div class="answer-graphic-value" data-number="1">
                 <img src="../../assets/images/single_star.png" alt="">
                 <span>x 1</span>
@@ -361,6 +361,40 @@
             <div class="answer-graphic-value" data-number="5">
                 <img src="../../assets/images/single_star.png" alt="">
                 <span>x 5</span>
+            </div>
+        </div>
+        <div class="answer-graphic-container hidden" id="number-icons">
+            <div class="answer-graphic-value" data-number="1">
+                <span>o 1</span>
+            </div>
+            <div class="answer-graphic-value" data-number="2">
+                <span>o 2</span>
+            </div>
+            <div class="answer-graphic-value" data-number="3">
+                <span>o 3</span>
+            </div>
+            <div class="answer-graphic-value" data-number="4">
+                <span>o 4</span>
+            </div>
+            <div class="answer-graphic-value" data-number="5">
+                <span>o 5</span>
+            </div>
+        </div>
+        <div class="answer-graphic-container hidden" id="reaction-icons">
+            <div class="answer-graphic-value" data-number="1">
+                <img src="../../assets/images/reaccion/angry.png" alt="">
+            </div>
+            <div class="answer-graphic-value" data-number="2">
+                <img src="../../assets/images/reaccion/sad.png" alt="">
+            </div>
+            <div class="answer-graphic-value" data-number="3">
+                <img src="../../assets/images/reaccion/neutral.png" alt="">
+            </div>
+            <div class="answer-graphic-value" data-number="4">
+                <img src="../../assets/images/reaccion/smilling.png" alt="">
+            </div>
+            <div class="answer-graphic-value" data-number="5">
+                <img src="../../assets/images/reaccion/happy.png" alt="">
             </div>
         </div>
         <div class="answers-counter-container">

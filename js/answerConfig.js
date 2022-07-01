@@ -134,7 +134,10 @@ function addAnswer() {
 
 
 /** 
- * 
+ * Sync the bottom bars with the answers
+ * @param {string} type type of action to perform on bars
+ * @param {integer} newValue value to assign on the bar section
+ * @param {integer} answerNumber bar section to perform action
 */
 function syncBars(type, newValue, answerNumber) {
 
@@ -142,10 +145,6 @@ function syncBars(type, newValue, answerNumber) {
 
         totalAsnwers = getTotalAnswers();
         let graphicalType = getGraphicalType();
-
-        $('.answers-counter-container').append(`
-            <div class="answer-counter" data-number="${totalAsnwers}"> - </div>`
-        );
 
         if (graphicalType == 'stars') {
             $('.answer-graphic-container').append(`
@@ -155,7 +154,7 @@ function syncBars(type, newValue, answerNumber) {
                 </div>`
             );
         }
-        else if (graphicalType == 'numbers') {
+        else if (graphicalType == 'num') {
             $('.answer-graphic-container').append(`
                 <div class="answer-graphic-value" data-number="${totalAsnwers}">
                     <span>o ${totalAsnwers}</span>
@@ -164,34 +163,57 @@ function syncBars(type, newValue, answerNumber) {
         }
         else if (graphicalType == 'reaction') {
             $('.answer-graphic-container').append(`
-            <div class="answer-graphic-value" data-number="${totalAsnwers}">
-                <img src="../../assets/images/reaccion/neutral.png" alt="">
-            </div>`
+                <div class="answer-graphic-value" data-number="${totalAsnwers}">
+                    <img src="../../assets/images/reaccion/neutral.png" alt="">
+                </div>`
             );
 
-            if (getTotalAnswers() == 5) $('#add-answer-btn').attr('disabled', true)
+            if (getTotalAnswers() + 1 == 5) $('#add-answer-btn').attr('disabled', true)
         }
+
+        $('.answers-counter-container').append(`
+            <div class="answer-counter" data-number="${totalAsnwers}"> - </div>`
+        );
 
         $('.answer-bar-container').append(`
             <div class="answer-bar" style="background-color: #FD2C2C;" data-number="${totalAsnwers}"></div>`
         );
+
+        if (getTotalAnswers() >= 5) {
+            document.getElementById('reaction-type').disabled = true;
+            document.getElementById('reaction-banner').style.pointerEvents = 'none';
+        } 
     }
 
     if (type == 'remove') {
         let answerCounter = $(`.answer-counter[data-number="${answerNumber}"]`);
         let answerBar = $(`.answer-bar[data-number="${answerNumber}"]`);
-        let answerValue = $(`.answer-graphic-value[data-number="${answerNumber}"]`);
+        let answerValue = $(`.answer-graphic-container:not(.hidden) .answer-graphic-value[data-number="${answerNumber}"]`);
 
         answerCounter.remove();
         answerBar.remove();
         answerValue.remove();
-        
-        $('.answer-graphic-value span').toArray().forEach( (span, index) => {
-            $(span).text(`x ${index + 1}`)
-        } )
-        if (getGraphicalType() == 'reaction') {
+
+        if (getGraphicalType() == 'stars') {
+            $('.answer-graphic-container:not(.hidden) .answer-graphic-value span').toArray().forEach( (span, index) => {
+                $(span).text(`x ${index + 1}`)
+            } )
+        }
+
+        else if (getGraphicalType() == 'num') {
+            $('.answer-graphic-container:not(.hidden) .answer-graphic-value span').toArray().forEach( (span, index) => {
+                $(span).text(`o ${index + 1}`)
+            } )
+        }
+
+        else if (getGraphicalType() == 'reaction') {
 
             if (getTotalAnswers() - 1 <= 4) $('#add-answer-btn').attr('disabled', false)
+        }
+
+        if (getTotalAnswers() - 1 <= 5) {
+            document.getElementById('reaction-type').disabled = false;
+            document.getElementById('reaction-banner').style.pointerEvents = 'all';
         }
     }
 
@@ -205,34 +227,6 @@ function syncBars(type, newValue, answerNumber) {
             $(answerBars[index]).css('background-color', bgc);
         })
         answerCounter.text(newValue);
-    }
-
-    if (type == 'style') {
-        const defaults = document.getElementById('defaults').content.cloneNode(true);
-        const area = document.getElementById('scale-editor-area');
-        area.innerHTML = '';
-        area.appendChild(defaults);
-
-        let scale = [];
-        let type = getScaleType();
-        let answers = $('.answer-element').toArray();
-        let counters = $('.answer-counter').toArray();
-
-
-        if (type == '100') {
-            scale = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"];
-        }
-        if (type == 'unit') {
-            scale = ["1", "2", "3", "4", "5"];
-        }
-
-        answers.forEach( (answer, index) => {
-            $(answer).find('.tag').text(scale.reverse()[index]);
-        })
-
-        counters.forEach( (counter, index) => {
-            counter.innerText =`${scale.reverse()[index]}`;
-        })
     }
 
 }
@@ -268,4 +262,34 @@ function updateAnswer() {
     }
 
     syncBars('update', newAnswerValue, answerNumber)
+}
+
+function restoreDefaults() {
+    const defaults = document.getElementById('defaults').content.cloneNode(true);
+    const area = document.getElementById('scale-editor-area');
+    area.innerHTML = '';
+    area.appendChild(defaults);
+
+    let scale = [];
+    let type = getScaleType();
+    let answers = $('.answer-element').toArray();
+    let counters = $('.answer-counter').toArray();
+
+
+    if (type == '100') {
+        scale = ["0 - 20", "21 - 40", "41 - 60", "61 - 80", "81 -100"];
+    }
+    if (type == 'unit') {
+        scale = ["1", "2", "3", "4", "5"];
+    }
+
+    answers.forEach( (answer, index) => {
+        $(answer).find('.tag').text(scale.reverse()[index]);
+    })
+
+    counters.forEach( (counter, index) => {
+        counter.innerText =`${scale.reverse()[index]}`;
+    })
+    document.getElementById('stars-banner').click();
+
 }

@@ -18,6 +18,9 @@ function addEventsToCards() {
 	})
 }
 
+/**
+ * It allows tot he user to change the graphic style used on the answers  
+ */
 function allowGraphicalSelector() {
 	let selectors = Array.from(document.getElementsByClassName('graphical-banner'));
 
@@ -28,7 +31,9 @@ function allowGraphicalSelector() {
 
 			input.checked = true;
 
-			// Functions used here are defined on asnwerConfig.js file
+			/**
+			 * TODO: Fix BUG when change from type of graphic after removing answer, graphic icon miss match answers.
+			 */
 			if (input.value == 'reaction') {
 
 				document.getElementById('stars-icons').classList.add('hidden');
@@ -43,12 +48,26 @@ function allowGraphicalSelector() {
 				document.getElementById('number-icons').classList.remove('hidden');
 				document.getElementById('reaction-icons').classList.add('hidden');
 
+				let currentBars = $(`.answer-graphic-container:not(.hidden) .answer-graphic-value`).toArray();
+
+				currentBars.forEach( (bar, index) => {
+					if (bar.querySelector('img') != null) bar.querySelector('img').remove();
+					bar.querySelector('span').innerHTML = `o ${index + 1}`
+				})
+
 				$('#add-answer-btn').attr('disabled', false)
 			}
 			else if (input.value == 'stars') {
 				document.getElementById('stars-icons').classList.remove('hidden');
 				document.getElementById('number-icons').classList.add('hidden');
 				document.getElementById('reaction-icons').classList.add('hidden');
+
+				let currentGraphic = Array.from(document.querySelectorAll(`.answer-graphic-container:not(.hidden) .answer-graphic-value`));
+
+				currentGraphic.forEach( (bar, index) => {
+					if (bar.querySelector('img') != null) bar.querySelector('img').src = '../../assets/images/single_star.png';
+					bar.querySelector('span').innerHTML = `x ${index + 1}`
+				})
 
 				$('#add-answer-btn').attr('disabled', false)
 			}
