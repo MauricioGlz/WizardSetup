@@ -1,0 +1,49 @@
+<div class="tab">
+    <div class="tab-title">Selecciona los evaluados</div>
+    <div class="tab-container" id="bulkLoadConfig">
+        <div class="bulkLoad-options">
+            <div class="bulkLoad-option">
+                <p>Utiliza esta plantilla para hacer una carga masiva.
+                </p>
+                <button><i class="bi bi-file-earmark-plus"></i> Descargar</button>
+            </div>
+            <div class="bulkLoad-option">
+                <p>Sube tu plantilla para generar tu red</p>
+                <div class="form-group">
+                    <input type="text" class="form-control">
+                    <button>Seleccionar archivo</button>
+                </div>
+                <button>Generar</button>
+            </div>
+            <div class="bulkLoad-option">
+                <p>Una vez que la plantilla haya sido procesada
+                    podrás visualizar la red en la tabla inferior.</p>
+            </div>
+        </div>
+        <div class="bulkLoad-filters">
+            <div class="bulkLoad-pagination" id="bulkLoad-pagination-container">
+
+            </div>
+            <div class="bulkLoad-select-all">
+                <span>Seleccionar todos</span>
+                <label class="switch">
+                    <input type="checkbox" id="checkBulk" name="questionVisible">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <div class="bulkLoad-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Evaluado</th>
+                        <th>Evaluadores</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody id="bulkLoad-table-container">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -5,10 +5,15 @@ import { storeConfig, storeWelcomeMessage } from "./evaluationConfig.js";
 import { addReminderEvents, storeReminders } from "./reminders.js";
 import { allowModalsEvents } from "./modal.js";
 import { degreeEvaluation } from "./degreeEvaluation.js"
+import { selectNetwork } from "./selectNetwork.js"
+import { bulkLoad } from "./bulkLoad.js"
+import { makeImport } from "./makeImport.js"
+import { organizationChart } from "./organizationChart.js"
 
 
-let currentTab = 0; // Current tab is set to be the first tab (0)
+let currentTab = 11; // Current tab is set to be the first tab (0)
 let lastStep = 0;
+
 
 async function showTab(n) {
     // This function will display the specified tab of the form ...
@@ -84,9 +89,14 @@ function nextPrev(n) {
             storeOption();
             break;
 
+        case 11:
+
+        break;
+
         default:
             break;
     }
+
 
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
@@ -112,7 +122,11 @@ function loadPages() {
         'principals',
         'evaluationType',
         'scalesConfiguration',
-        'degreeEvaluation'
+        'degreeEvaluation',
+        'selectNetwork',
+        'bulkLoad',
+        'makeImport',
+        'organizationChart'
         /*
         'openQuestions',
         'newtworkCreation',
@@ -131,8 +145,29 @@ function loadPages() {
 
 }
 
+function selectNetworkTab () {
+    let optionNetwork = document.querySelectorAll(".network-option-card");
+    let organizationChartTab = optionNetwork[0];
+    let bulkLoadTab = optionNetwork[1];
+    let makeImportTab = optionNetwork[3];
+
+    if (organizationChartTab.className == "option-card card-left network-option-card active-card") {
+        nextPrev(3);
+    }
+    else if (bulkLoadTab.className == "option-card card-right network-option-card active-card") {
+        nextPrev(1);
+    }
+    else if (makeImportTab.className == "option-card card-right network-option-card active-card") {
+        nextPrev(2);
+    }
+    else {
+        nextPrev(1);
+    }
+}
+
 document.getElementById('nextBtn').addEventListener('click', () => {
-    nextPrev(1);
+    selectNetworkTab();
+
 });
 
 document.getElementById('prevBtn').addEventListener('click', () => {
@@ -159,5 +194,9 @@ $(document).ready(async function () {
     allowOptionBtns();
     addReminderEvents();
     degreeEvaluation();
-
+    selectNetwork();
+    bulkLoad();
+    makeImport();
+    organizationChart();
 })
+

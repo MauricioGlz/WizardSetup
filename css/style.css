@@ -1315,7 +1315,11 @@ input:checked+.slider:before {
      */
 }
 
-#scalesConfig {
+#scalesConfig,
+#degreeEvaluationConfig,
+#bulkLoadConfig,
+#makeImportConfig,
+#organizationChartConfig {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -1595,4 +1599,291 @@ input:checked+.slider:before {
 .degree-form {
     margin: 10px;
     width: 200px;
+}
+
+/* Select network */
+
+.options-chooser-network {
+    display: flex;
+    flex-direction: column;
+}
+
+.network-option {
+    margin: 10px;
+}
+
+.card-network-title {
+    margin-top: 18px;
+}
+
+.bulkLoad-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bulkLoad-option {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bulkLoad-option p {
+    text-align: center;
+}
+
+.bulkLoad-option:nth-child(2) {
+    border-left: 1px solid #D2D2D2;
+    border-right: 1px solid #D2D2D2;
+}
+
+.bulkLoad-option .form-group {
+    display: flex;
+}
+
+.bulkLoad-option .form-group .form-control {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.bulkLoad-option button {
+    padding: 5px 20px;
+    color: white;
+    background: #554AD4;
+    border: 1px solid #554AD4;
+    border-radius: 4px;
+    transition: all .2s ease-in;
+}
+
+.bulkLoad-option button:hover {
+    color: #34334A;
+    background: #fff;
+    border: 1px solid #D2D2D2;
+    transition: all .2s ease-in;
+}
+
+.bulkLoad-option .form-group button {
+    padding: 5px 20px;
+    border: 1px solid #D2D2D2;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #34334A;
+    background: transparent;
+    transition: all .2s ease-in;
+}
+
+.bulkLoad-option .form-group button:hover {
+    color: white;
+    background: #554AD4;
+    border-color: #554AD4;
+    transition: all .2s ease-out;
+}
+
+.bulkLoad-filters {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    padding-right: 20px;
+    width: 95%;
+}
+
+.bulkLoad-pagination {
+    display: flex;
+    margin-right: 10px;
+}
+
+.bulkLoad-pagination .active {
+    filter: none;
+    background: #554AD4;
+    border-color: #554AD4;
+}
+
+.bulkLoad-page {
+    margin: 10px 5px;
+    padding: 5px 12px;
+    font-size: 14px;
+    border-color: #554AD4;
+    color: #554AD4;
+}
+
+.bulkLoad-select-all span {
+    margin: 0 1px;
+}
+
+.bulkLoad-table {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.bulkLoad-table table {
+    width: 100%;
+    margin: auto;
+    border: 2px solid #BDBDBD;
+}
+
+.bulkLoad-table table tr th {
+    padding: 10px;
+}
+
+.bulkLoad-table table tr td {
+    padding: 10px;
+    border-top: 2px solid #BDBDBD;
+}
+
+/* Make Import */
+
+.makeImport-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.makeImport-filters-container {
+    display: flex;
+    align-items: center;
+}
+
+.makeImport-pagination {
+    display: flex;
+    margin-right: 10px;
+}
+
+.makeImport-pagination .active {
+    filter: none;
+    background: #554AD4;
+    border-color: #554AD4;
+}
+
+.import-page {
+    margin: 10px 5px;
+    padding: 5px 12px;
+    font-size: 14px;
+    border-color: #554AD4;
+    color: #554AD4;
+}
+
+.makeImport-select-all span {
+    margin: 0 1px;
+}
+
+.makeImport-table {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.makeImport-table table {
+    width: 100%;
+    margin: auto;
+    border: 2px solid #BDBDBD;
+}
+
+.makeImport-table table tr th {
+    padding: 10px;
+}
+
+.makeImport-table table tr td {
+    padding: 10px;
+    border-top: 2px solid #BDBDBD;
+}
+
+
+/* organizationChart */
+
+.organizationChart-orders {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.organizationChart-options {
+    display: flex;
+}
+
+.organizationChart-options .option-btn {
+    margin-right: 10px;
+    padding: 20px;
+    width: 300px;
+}
+
+.organizationChart-date {
+    display: flex;
+    align-items: center;
+}
+
+.organizationChart-date span {
+    margin-right: 10px;
+}
+
+.organizationChart-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.organizationChart-inputs {
+    display: flex;
+}
+
+.organizationChart-input {
+    margin-right: 10px;
+}
+
+.organizationChart-input .form-control {
+    width: 250px;
+}
+
+.organizationChart-filters-container {
+    display: flex;
+    align-items: center;
+}
+
+.organizationChart-pagination {
+    display: flex;
+    margin-right: 10px;
+}
+
+.organizationChart-pagination .active {
+    filter: none;
+    background: #554AD4;
+    border-color: #554AD4;
+}
+
+.organizationChart-page {
+    margin: 10px 5px;
+    padding: 5px 12px;
+    font-size: 14px;
+    border-color: #554AD4;
+    color: #554AD4;
+}
+
+.organizationChart-select-all span {
+    margin: 0 1px;
+}
+
+.organizationChart-table {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.organizationChart-table table {
+    width: 100%;
+    margin: auto;
+    border: 2px solid #BDBDBD;
+}
+
+.organizationChart-table table tr th {
+    padding: 10px;
+}
+
+.organizationChart-table table tr td {
+    padding: 10px;
+    border-top: 2px solid #BDBDBD;
 }

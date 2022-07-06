@@ -1,0 +1,74 @@
+<div class="tab">
+    <div class="tab-title">Crea tu red</div>
+    <div class="tab-container" id="organizationChartConfig">
+        <p>Utiliza los siguientes métodos para la generación de tu red o creala manualmente usando la tabla inferior.
+        </p>
+        <div class="organizationChart-orders">
+            <div class="organizationChart-options">
+                <div class="option-btn" id="randomOrder">Generar red aleatoriamente</div>
+                <div class="option-btn" id="oldOrder">Más antiguos</div>
+                <div class="option-btn" id="recentOrder">Más recientes</div>
+            </div>
+            <div class="organizationChart-date">
+                <span>Fecha</span>
+                <input type="date" class="form-control">
+            </div>
+        </div>
+        <div class="organizationChart-filters">
+            <div class="organizationChart-filters-container">
+                <div class="organizationChart-inputs">
+                    <div class="organizationChart-input">
+                        <p>Buscar por nombre:</p>
+                        <input type="text" class="form-control" id="organizationChartSearch">
+                    </div>
+                    <div class="organizationChart-input">
+                        <p>Filtrar por</p>
+                        <select name="evaluatorType" class="form-control">
+                            <option value="-"></option>
+                            <option value="Type-1">Tipo 1</option>
+                            <option value="Type-2">Tipo 2</option>
+                            <option value="Type-3">Tipo 3</option>
+                        </select>
+                    </div>
+                    <div class="organizationChart-input">
+                        <p>Atributos</p>
+                        <select name="evaluatorType" class="form-control">
+                            <option value="-"></option>
+                            <option value="Type-1">Tipo 1</option>
+                            <option value="Type-2">Tipo 2</option>
+                            <option value="Type-3">Tipo 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="organizationChart-filters-container">
+                <div class="organizationChart-pagination" id="organizationChart-pagination-container">
+
+                </div>
+                <div class="organizationChart-select-all">
+                    <span>Seleccionar todos</span>
+                    <label class="switch">
+                        <input type="checkbox" id="checkOrganization" name="questionVisible">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="organizationChart-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Evaluado</th>
+                        <th>Correo</th>
+                        <th>Atributos</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Posición</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody id="organizationChart-table-container">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
